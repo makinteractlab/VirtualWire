@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Andrea\GIT\VirtualWire\Hardware\PCB\VirtualWire\VirtualWire.PcbDoc
 Date     : 2/28/2019
-Time     : 3:58:27 PM
+Time     : 4:44:12 PM
 
 Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
 Rule Violations :0
@@ -51,4 +51,4 @@ Rule Violations :0
 
 Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:00
