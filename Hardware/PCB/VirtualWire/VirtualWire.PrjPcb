@@ -103,7 +103,11 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=ONLFLLOJ
+DocumentUniqueId=PNHLFWYW
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for VirtualWire\Design Rule Check - VirtualWire.html
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources
