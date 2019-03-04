@@ -1,0 +1,31 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: VirtualWire.PcbDoc   3/4/2019  12:43:09 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : VirtualWire-RoundHoles.TXT
+ASCII SlotHoles File : VirtualWire-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.3mm)                                             Round             77        PTH        0.00inch (0.00mm)
+T2      35mil (0.9mm)                                             Round             164       PTH        0.00inch (0.00mm)
+T3      43mil (1.1mm)                                             Round             62        PTH        0.00inch (0.00mm)
+T4      43mil (1.1mm)                                             Slot              3         PTH        0.00inch (0.00mm)
+T5      71mil (1.8mm)                                             Round             5         PTH        0.00inch (0.00mm)
+T6      47mil (1.2mm)                                             Slot              18        NPTH       0.00inch (0.00mm)
+T7      126mil (3.2mm)                                            Round             3         NPTH       0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              332
+Layer Pair : Int2 (Signal) to Bottom Layer
+ASCII RoundHoles File : VirtualWire-RoundHoles.TX1
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.3mm)                                             Round             9         PTH        0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              9
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              341
+
+Total Processing Time (hh:mm:ss) : 00:00:00

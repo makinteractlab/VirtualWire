@@ -1,0 +1,11 @@
+Output: Bill of Materials
+Type  : BOM
+From  : Variant [[No Variations]] of Project [VirtualWire.PrjPcb]
+   Generated File[Bill of Materials-VirtualWire.xls]
+   Generated File[Bill of Materials-VirtualWire.xls]
+
+
+Files Generated   : 2
+Documents Printed : 0
+
+Finished Output Generation At 12:43:14 PM On 3/4/2019

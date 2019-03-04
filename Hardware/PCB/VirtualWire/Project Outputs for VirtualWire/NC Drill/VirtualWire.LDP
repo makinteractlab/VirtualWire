@@ -1,0 +1,4 @@
+Layer Pairs Export File for PCB: C:\Users\Andrea\GIT\VirtualWire\Hardware\PCB\VirtualWire\VirtualWire.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=virtualwire-roundholes.txt|DrillLayers=gtl,gp1,g1,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=virtualwire-slotholes.txt|DrillLayers=gtl,gp1,g1,gbl
+LayersSetName=Int2 (Signal)_Bot_Blind_Vias|DrillFile=virtualwire-roundholes.tx1|DrillLayers=g1,gbl
