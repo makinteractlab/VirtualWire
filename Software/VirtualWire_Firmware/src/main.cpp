@@ -1,37 +1,35 @@
 #include <Arduino.h>
 #include <AD75019.h>
-#define LED 10
+#include "constants.hpp"
+#include "SwitchArray.hpp"
 
-AD75019 bd_matrix (14, 15, 16); // breadboard to arduino digital pins
-AD75019 bb_matrix (14, 15, 16); // breadboard matrix
-
-
-enum BREADBOARD_PINS {P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16};
-
+AD75019 chip1 (PCLK, SCLK, SIN); // breadboard matrix
+AD75019 chip2 (SCLK, SIN); // breadboard matrix to Arduino digital
+AD75019 chip3 (SCLK, SIN); // breadboard matrix to Arduino analog
+SwitchArray switches (&chip1, &chip2, &chip3);
 
 void setup()
 {
-  Serial.begin(115200);
-  pinMode(LED, OUTPUT);
-  digitalWrite (LED, HIGH);
+  Serial.begin(BAUD_RATE);
 
-  
-  delay(2000);
-  
-  bd_matrix.connect(0, 5);
-  bb_matrix.twoWaysConnect (P1,P14);
-  
-  bd_matrix.writeSwitches();
-  bb_matrix.writeSwitches();
-  bd_matrix.updateSwitches();
-  // breadboard_matrix.dbg();
-  digitalWrite (LED, LOW);
+  // setup status LED
+  pinMode(STATUS_LED, OUTPUT);
+  digitalWrite (STATUS_LED, HIGH);
+
+  // Testing the switching matrix
+  switches.connect (BREADBOARD_PINS::P4, BREADBOARD_PINS::P9);
+  switches.connect (BREADBOARD_PINS::P1, BREADBOARD_PINS::P2);
+  switches.connect (BREADBOARD_PINS::P3, ARDUINO_DIGITAL_PINS::D4);
+  switches.connect (BREADBOARD_PINS::P8, ARDUINO_ANALOG_PINS::ARESET);
+  switches.connect (BREADBOARD_PINS::P8, ARDUINO_ANALOG_PINS::IOREF);
+  switches.update();
+
+  digitalWrite(STATUS_LED, LOW);
 }
 
 void loop()
 {
   // Serial.println("fds"); delay(1000);
-  // Serial.println("hello");
-  // while (Serial.available()) Serial3.write(Serial.read());
+  // Serial.println("hello");  // while (Serial.available()) Serial3.write(Serial.read());
   // while (Serial3.available()) Serial.write(Serial3.read());
 }

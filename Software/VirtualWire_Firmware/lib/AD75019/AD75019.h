@@ -7,31 +7,34 @@
 #define AD75019_h
 
 #include "Arduino.h"
-// Matrix size
-#define MSIZE 16
-
+#define MATRIX_SIZE 16
+#define NONE -1
+#define OFF 0
+#define ON 1
 
 class AD75019
 {
   private:
     byte pclk, sclk, sin;
-    unsigned int connections [MSIZE]; // 2 bytes x 16
-    static const unsigned int NONE= 0;  
+    bool updatable;
+    unsigned int connections [MATRIX_SIZE]; // 2 bytes x 16
+
+    void resetMatrix();
 
   public:
     AD75019 (byte pclkPin, byte sclkPin, byte sinPin);
-    void reset();
+    AD75019 (byte sclkPin, byte sinPin); // this cannot udpate
+    
     void connect (byte x, byte y);
     void twoWaysConnect (byte x, byte y);
     void disconnect (byte x, byte y);
     void twoWaysDisonnect (byte x, byte y);
     bool areConnected (byte x, byte y);
 
-    inline byte size(){ return MSIZE; }
+    void closeAllSwitches();
     void writeSwitches();
     void updateSwitches();
-    void dbg();
-    void closeAllSwitches();
+    // void dbg();
 };
 
 #endif
