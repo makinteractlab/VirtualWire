@@ -10,11 +10,11 @@ enum class ARDUINO_ANALOG_PINS {A0, A1, A2, A3, A4, A5, VIN, A5V, A3V, ARESET, I
 
 class SwitchArray
 {
-    AD75019 *c1, *c2, *c3;
+    AD75019 c1, c2, c3;
 
     public:
       // order is important (chip1 is the head of the chain)
-      SwitchArray(AD75019* chip1, AD75019* chip2, AD75019* chip3);
+      SwitchArray(const AD75019& chip1, const AD75019& chip2, const AD75019& chip3);
       void reset();
 
       void connect (BREADBOARD_PINS x, BREADBOARD_PINS y);

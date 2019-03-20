@@ -1,8 +1,7 @@
 #ifndef __WIFI__H__
 #define __WIFI__H__
 
-#include "WiFiEsp.h"
-
+#include <Arduino.h>
 
 class Wifi
 {
@@ -15,8 +14,8 @@ class Wifi
     public: 
     Wifi();
     void init(int baudRate);
-    void connect(char *ssid, char *password);
-    void connect(String ssid, String password);
+    void connect(const char *ssid, const char *password);
+    void connect(const String ssid, const String password);
     void printWifiStats();
     inline int getStatus (){ return status; }
 };

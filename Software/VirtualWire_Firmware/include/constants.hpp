@@ -16,5 +16,11 @@
 #define EEPROM_MEM_BASE 0
 #define EEPROM_MAX_WRITE 20
 
+// Flags
+#define DEBUG 1
+
+// JSON
+#define JSON_BUFFER_SIZE 160
+
 
 #endif

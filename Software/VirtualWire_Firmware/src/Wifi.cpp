@@ -1,4 +1,5 @@
 #include "Wifi.hpp"
+#include "WiFiEsp.h"
 
 Wifi::Wifi(): status(WL_IDLE_STATUS) {}
 
@@ -11,10 +12,10 @@ void Wifi::init(int baudRate)
 
 void Wifi::connect(String ssid, String password)
 {
-    connect((char*)(ssid.c_str()), (char*)(password.c_str()));
+    connect(ssid.c_str(), password.c_str());
 }
 
-void Wifi::connect(char *ssid, char *password)
+void Wifi::connect(const char *ssid, const char *password)
 {
     if (WiFi.status() == WL_NO_SHIELD)
     {

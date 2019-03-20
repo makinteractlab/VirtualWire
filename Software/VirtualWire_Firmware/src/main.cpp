@@ -3,16 +3,18 @@
 #include "constants.hpp"
 #include "SwitchArray.hpp"
 #include "Wifi.hpp"
-
-#include "Helpers.h"
+#include "Helpers.hpp"
 
 
 AD75019 chip1 (PCLK, SCLK, SIN); // breadboard matrix
 AD75019 chip2 (SCLK, SIN); // breadboard matrix to Arduino digital
 AD75019 chip3 (SCLK, SIN); // breadboard matrix to Arduino analog
-SwitchArray switches (&chip1, &chip2, &chip3);
+SwitchArray switches (chip1, chip2, chip3);
 InternalMemory memory(EEPROM_MEM_BASE, EEPROM_SIZE, EEPROM_MAX_WRITE);
 Wifi wifi;
+CommandInput  parser (switches, JSON_BUFFER_SIZE);
+
+
 
 void setup()
 {
@@ -31,15 +33,16 @@ void setup()
   switches.update();
   */
 
-  
+  // Testing writing on memory
   // memory.saveSSID("MAKinteract");
   // memory.savePW("make5555");
   // Serial.println(memory.getSSID());
   // Serial.println(memory.getPW());
 
-  wifi.init(BAUD_RATE);
-  wifi.connect(memory.getSSID(), memory.getPW());
-  wifi.printWifiStats();
+  // Testing wifi
+  // wifi.init(BAUD_RATE);
+  // wifi.connect(memory.getSSID(), memory.getPW());
+  // wifi.printWifiStats();
 
 
   // Ready
@@ -49,6 +52,15 @@ void setup()
 void loop()
 {
 
+  // Handle configurations through USB serial
+  while (Serial.available())
+  {
+    char inChar = (char)Serial.read();
+    if (parser.updateInput(inChar))
+    {
+      parser.executeCommand("", &Serial);
+    }
+  }
 }
 
 
