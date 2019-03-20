@@ -2,11 +2,18 @@
 #include <AD75019.h>
 #include "constants.hpp"
 #include "SwitchArray.hpp"
+#include "Wifi.hpp"
+
 
 AD75019 chip1 (PCLK, SCLK, SIN); // breadboard matrix
 AD75019 chip2 (SCLK, SIN); // breadboard matrix to Arduino digital
 AD75019 chip3 (SCLK, SIN); // breadboard matrix to Arduino analog
 SwitchArray switches (&chip1, &chip2, &chip3);
+Wifi wifi;
+
+char ssid[] = "MAKinteract";
+char pass[] = "make5555";
+
 
 void setup()
 {
@@ -25,6 +32,10 @@ void setup()
   switches.update();
 
   digitalWrite(STATUS_LED, LOW);
+
+  wifi.init(BAUD_RATE);
+  wifi.connect (ssid, pass);
+  wifi.printWifiStats();
 }
 
 void loop()

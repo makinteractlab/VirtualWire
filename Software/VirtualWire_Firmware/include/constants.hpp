@@ -6,6 +6,6 @@
 #define SIN 16
 #define STATUS_LED 10
 #define BAUD_RATE 115200 
-
+#define WIFI_RESET 6
 
 #endif
