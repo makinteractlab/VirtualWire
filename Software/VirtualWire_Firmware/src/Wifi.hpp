@@ -16,6 +16,7 @@ class Wifi
     Wifi();
     void init(int baudRate);
     void connect(char *ssid, char *password);
+    void connect(String ssid, String password);
     void printWifiStats();
     inline int getStatus (){ return status; }
 };
