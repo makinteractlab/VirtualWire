@@ -1,62 +1,61 @@
-#include "Helpers.hpp"
-#include <EEPROMex.h>
-#include <ArduinoJson.h>
+#include "AppManager.hpp"
+#include "ArduinoJson.h"
 
-InternalMemory::InternalMemory(byte memBase, byte memSize, byte maxWrite) : writeSize(maxWrite)
+AppManager::AppManager() 
 {
-    EEPROM.setMemPool(memBase, memSize);
-    EEPROM.setMaxAllowedWrites(writeSize);
-    ssidAddr = EEPROM.getAddress(sizeof(char) * writeSize);
-    passAddr = EEPROM.getAddress(sizeof(char) * writeSize);
+    pinMode(STATUS_LED, OUTPUT);
 }
 
-void InternalMemory::saveSSID(char ssid[])
+void AppManager::init(SwitchArray *const switchArray)
 {
-    EEPROM.writeBlock<char>(ssidAddr, ssid, writeSize);
+    sa = switchArray;
 }
 
-void InternalMemory::savePW(char pass[])
+void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
 {
-    EEPROM.writeBlock<char>(passAddr, pass, writeSize);
+    StaticJsonDocument<BUFFER_SIZE> json;
+    DeserializationError error = deserializeJson(json, msg);
+
+    // Test if parsing succeeds.
+    if (error)
+    {
+        // Serial.print(F("JSON parse fail"));
+        if (client) client->print("JSON parse fail\r\n");
+        return;
+    }
+    Serial.println(msg);
+
+    JsonArray array = json["data"].as<JsonArray>();
+    JsonObject start= array.getElement(0);
+    JsonVariant value = start["type"];
+    Serial.println (value.as<String>());
+
+
+    // Example
+    // {"cmd":"c|d", "from":"P1", "to":"P2"}
+    // c = connect, d= disconnect
+    // String from = json["c"][0];
+    // String to = json["c"][1];
+    // Serial.println(from);
+    // Serial.println(to);
 }
 
-String InternalMemory::getSSID()
+
+void AppManager::blinkStatusLed(uint16_t times, uint16_t ms)
 {
-    char output[writeSize];
-    EEPROM.readBlock<char>(ssidAddr, output, writeSize);
-    return String(output);
+  for (uint16_t i=0; i<times; i++)
+  {
+    digitalWrite(STATUS_LED, HIGH);
+    delay(ms);
+    digitalWrite(STATUS_LED, LOW);
+    delay(ms);
+  }
 }
-
-String InternalMemory::getPW()
-{
-    char output[writeSize];
-    EEPROM.readBlock<char>(passAddr, output, writeSize);
-    return String(output);
-}
-
-
 
 
 // Command input
+/*
 
-CommandInput::CommandInput(const SwitchArray &mt, const byte bufferSize): 
-                            m(mt), input(""), jsonBufferSize(bufferSize) {}
-
-
-bool CommandInput::updateInput(char inChar)
-{
-    if (inChar == '\n')
-        return true;
-    input += inChar;
-    if (input.length() > jsonBufferSize)
-        return true;
-    return false;
-}
-
-void CommandInput::clearInput()
-{
-    input="";
-}
 
 void CommandInput::executeCommand(const String &str, Stream *stream)
 {
@@ -137,3 +136,6 @@ void CommandInput::handleConnection(const JsonObject &in, Stream *stream)
 
 //     stream->println(F("{\"Status\":\"Ok\"}"));
 }
+
+
+*/

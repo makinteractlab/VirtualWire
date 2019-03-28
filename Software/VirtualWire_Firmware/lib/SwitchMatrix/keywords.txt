@@ -2,12 +2,15 @@
 # Syntax Coloring Map For MD5
 #######################################
 
-AD75019	KEYWORD1
+SwitchMatrix	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-connect	KEYWORD2
-disconnect	KEYWORD2
-update	KEYWORD2
+closeAllSwitches	KEYWORD2
+update	            KEYWORD2
+areConnected	    KEYWORD2
+connect	            KEYWORD2
+twoWaysConnect	    KEYWORD2
+disconnect	        KEYWORD2

@@ -1,68 +1,96 @@
 #include "SwitchArray.hpp"
 
-SwitchArray::SwitchArray (const AD75019& chip1, const AD75019& chip2, const AD75019& chip3):
-                        c1(chip1), c2(chip2), c3(chip3)
-{
-
-}
+SwitchArray::SwitchArray(const uint8_t& pclkPin, const uint8_t& sclkPin, const uint8_t& sinPin): 
+                    sm(SwitchMatrix<CHIPS>(pclkPin,sclkPin,sinPin)) {}
 
 void SwitchArray::reset()
 {
-    c3.closeAllSwitches();
-    c2.closeAllSwitches();
-    c1.closeAllSwitches();
-    c1.updateSwitches();
-}
-
-void SwitchArray::connect (BREADBOARD_PINS x, BREADBOARD_PINS y)
-{
-    c1.twoWaysConnect (static_cast<int>(x), static_cast<int>(y));
-}
-
-void SwitchArray::connect (BREADBOARD_PINS x, ARDUINO_DIGITAL_PINS y)
-{
-    c2.connect(static_cast<int>(x), static_cast<int>(y));
-}
-
-void SwitchArray::connect (BREADBOARD_PINS x, ARDUINO_ANALOG_PINS y)
-{
-    c3.connect(static_cast<int>(x), static_cast<int>(y));
-}
-
-void SwitchArray::disconnect (BREADBOARD_PINS x, BREADBOARD_PINS y)
-{
-    c1.twoWaysDisonnect(static_cast<int>(x), static_cast<int>(y));
-}
-
-void SwitchArray::disconnect (BREADBOARD_PINS x, ARDUINO_DIGITAL_PINS y)
-{
-    c2.disconnect(static_cast<int>(x), static_cast<int>(y));
-}
-
-void SwitchArray::disconnect (BREADBOARD_PINS x, ARDUINO_ANALOG_PINS y)
-{
-    c3.disconnect(static_cast<int>(x), static_cast<int>(y));
-}
-
-void SwitchArray::areConnected (BREADBOARD_PINS x, BREADBOARD_PINS y)
-{
-    c1.areConnected(static_cast<int>(x), static_cast<int>(y));
-}
-
-void SwitchArray::areConnected(BREADBOARD_PINS x, ARDUINO_DIGITAL_PINS y)
-{
-    c2.areConnected(static_cast<int>(x), static_cast<int>(y));
-}
-
-void SwitchArray::areConnected(BREADBOARD_PINS x, ARDUINO_ANALOG_PINS y)
-{
-    c3.areConnected(static_cast<int>(x), static_cast<int>(y));
+    sm.closeAllSwitches();
 }
 
 void SwitchArray::update()
 {
-    c3.writeSwitches();
-    c2.writeSwitches();
-    c1.writeSwitches();
-    c1.updateSwitches();
+    sm.update();
+}
+
+
+
+void SwitchArray::connect (const BREADBOARD_PINS& x, const BREADBOARD_PINS& y)
+{
+    sm.twoWaysConnect (static_cast<int>(x), static_cast<int>(y), BREADBOARD_PINS_CHIP);
+}
+
+void SwitchArray::connect (const BREADBOARD_PINS& x, const ARDUINO_DIGITAL_PINS& y)
+{
+    sm.connect(static_cast<int>(x), static_cast<int>(y), ARDUINO_DIGITAL_PINS_CHIP);
+}
+
+void SwitchArray::connect (const BREADBOARD_PINS& x, const ARDUINO_ANALOG_PINS& y)
+{
+    sm.connect(static_cast<int>(x), static_cast<int>(y), ARDUINO_ANALOG_PINS_CHIP);
+}
+
+void SwitchArray::connect (const ARDUINO_DIGITAL_PINS& y, const BREADBOARD_PINS& x)
+{
+    sm.connect(static_cast<int>(x), static_cast<int>(y), ARDUINO_DIGITAL_PINS_CHIP);
+}
+
+void SwitchArray::connect (const ARDUINO_ANALOG_PINS& y, const BREADBOARD_PINS& x)
+{
+    sm.connect(static_cast<int>(x), static_cast<int>(y), ARDUINO_ANALOG_PINS_CHIP);
+}
+
+
+
+void SwitchArray::disconnect (const BREADBOARD_PINS& x, const BREADBOARD_PINS& y)
+{
+    sm.disconnect(static_cast<int>(x), static_cast<int>(y),BREADBOARD_PINS_CHIP);
+}
+
+void SwitchArray::disconnect (const BREADBOARD_PINS& x, const ARDUINO_DIGITAL_PINS& y)
+{
+    sm.disconnect(static_cast<int>(x), static_cast<int>(y), ARDUINO_DIGITAL_PINS_CHIP);
+}
+
+void SwitchArray::disconnect (const BREADBOARD_PINS& x, const ARDUINO_ANALOG_PINS& y)
+{
+    sm.disconnect(static_cast<int>(x), static_cast<int>(y), ARDUINO_ANALOG_PINS_CHIP);
+}
+
+void SwitchArray::disconnect (const ARDUINO_DIGITAL_PINS& y, const BREADBOARD_PINS& x)
+{
+    sm.connect(static_cast<int>(x), static_cast<int>(y), ARDUINO_DIGITAL_PINS_CHIP);
+}
+
+void SwitchArray::disconnect (const ARDUINO_ANALOG_PINS& y, const BREADBOARD_PINS& x)
+{
+    sm.connect(static_cast<int>(x), static_cast<int>(y), ARDUINO_ANALOG_PINS_CHIP);
+}
+
+
+
+
+void SwitchArray::areConnected (const BREADBOARD_PINS& x, const BREADBOARD_PINS& y)
+{
+    sm.areConnected(static_cast<int>(x), static_cast<int>(y), BREADBOARD_PINS_CHIP);
+}
+
+void SwitchArray::areConnected(const BREADBOARD_PINS& x, const ARDUINO_DIGITAL_PINS& y)
+{
+    sm.areConnected(static_cast<int>(x), static_cast<int>(y), ARDUINO_DIGITAL_PINS_CHIP);
+}
+
+void SwitchArray::areConnected(const BREADBOARD_PINS& x, const ARDUINO_ANALOG_PINS& y)
+{
+    sm.areConnected(static_cast<int>(x), static_cast<int>(y), ARDUINO_ANALOG_PINS_CHIP);
+}
+
+void SwitchArray::areConnected(const ARDUINO_DIGITAL_PINS& y, const BREADBOARD_PINS& x)
+{
+    sm.areConnected(static_cast<int>(x), static_cast<int>(y), ARDUINO_DIGITAL_PINS_CHIP);
+}
+
+void SwitchArray::areConnected(const ARDUINO_ANALOG_PINS& y, const BREADBOARD_PINS& x)
+{
+    sm.areConnected(static_cast<int>(x), static_cast<int>(y), ARDUINO_ANALOG_PINS_CHIP);
 }
