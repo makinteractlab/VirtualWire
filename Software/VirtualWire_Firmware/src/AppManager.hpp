@@ -19,16 +19,14 @@ class AppManager
             return instance;
         }
 
-        void init (SwitchArray* const switchArray, TimerCallback call);
+        void init (SwitchArray* const switchArray);
         void parseCommand (const String& msg, WiFiEspClient* const client);
         void blinkStatusLed(uint16_t times=1, uint16_t ms=1000);
         
         // DAC
         void setVoltage (uint16_t milliVolt);
-        void setWave (WAVE type, uint16_t freq, uint16_t amplitudeMv);
-        void startWave();
-        void stopWave();
-        void timerTick(); 
+        uint16_t readVoltage ();
+
 
     private:
        
@@ -37,11 +35,6 @@ class AppManager
 
         AppManager();  
         SwitchArray* sa;
-
-        // DAC
-        TimerCallback timerCallback;
-        WAVE type;
-        uint16_t period, amplitude, offset;
 
     public:
         // Do not implement

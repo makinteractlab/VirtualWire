@@ -7,7 +7,7 @@
 
 // FORWARD DECLARATIONS
 void onMessageReady (const String& msg, WiFiEspClient* const client);
-void onTimerTick ();
+
 
 // GLOBALS
 SwitchArray switches (PCLK, SCLK, SIN);
@@ -25,16 +25,15 @@ void setup()
   Wifi::getInstance().init((const char*)(F("VirtualWire")), IP(IP_ADDRESS));
 
   // App manager
-  AppManager::getInstance().init(&switches, onTimerTick);
+  AppManager::getInstance().init(&switches);
 
   // Statust OK
   AppManager::getInstance().blinkStatusLed();
 
   // Test Voltage
   // AppManager::getInstance().setVoltage(1260);
+ 
 
-  AppManager::getInstance().setWave (SIN_WAVE, 100, VOLT_MAX);
-  AppManager::getInstance().startWave();
 }
 
 void loop()
@@ -45,15 +44,12 @@ void loop()
 
 void onMessageReady (const String& msg, WiFiEspClient* const client)
 {
+  if (!client) return;
   Serial.println (F("Incoming message:"));
   Serial.println (msg);
   AppManager::getInstance().parseCommand(msg, client);
 }
 
-void onTimerTick()
-{
-  AppManager::getInstance().timerTick();
-}
 
 
 

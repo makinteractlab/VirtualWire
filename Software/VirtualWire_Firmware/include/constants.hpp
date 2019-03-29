@@ -7,6 +7,7 @@
 #define SIN 16
 #define STATUS_LED 10
 #define DAC_PIN A12
+#define ADC_PIN A5
 
 // WIFI
 #define BAUD_RATE 115200 
@@ -33,6 +34,8 @@
 #define MIN_FREQ 1
 #define MAX_FREQ 100
 
+#define ADC_RESOLUTION 16
+#define ADC_MAX 65536
 
 
 
