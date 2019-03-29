@@ -4,6 +4,7 @@
 #include "Wifi.hpp"
 #include "AppManager.hpp"
 
+
 // FORWARD DECLARATIONS
 void onMessageReady (const String& msg, WiFiEspClient* const client);
 
@@ -26,6 +27,7 @@ void setup()
   Wifi::getInstance().registerMsgReadyCallback (&onMessageReady);
   Wifi::getInstance().init((const char*)(F("VirtualWire")), IP(IP_ADDRESS));
 
+
   // App manager
   AppManager::getInstance().init(&switches);
 
@@ -44,5 +46,8 @@ void onMessageReady (const String& msg, WiFiEspClient* const client)
 {
   AppManager::getInstance().parseCommand(msg, client);
 }
+
+
+
 
 

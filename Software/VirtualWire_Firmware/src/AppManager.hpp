@@ -19,9 +19,13 @@ class AppManager
         void init (SwitchArray* const switchArray);
         void parseCommand (const String& msg, WiFiEspClient* const client);
         void blinkStatusLed(uint16_t times=1, uint16_t ms=1000);
+
       
     private:
        
+        void ackError (WiFiEspClient* const client);
+        void ackOk (WiFiEspClient* const client);
+
         AppManager();  
         SwitchArray* sa;
 
@@ -32,24 +36,4 @@ class AppManager
 };
 
 
-
-/*
-class CommandInput
-{
-  public:
-    CommandInput(const SwitchArray &mt, const byte bufferSize);
-    bool updateInput(char inChar);
-    void executeCommand(const String &str, Stream *stream);
-    void clearInput();
-
-  private:
-    void handleBoardInfo(const JsonObject &in, Stream *stream);
-    void handleConnection(const JsonObject &in, Stream *stream);
-   
-
-    SwitchArray m;
-    String input;
-    byte jsonBufferSize;
-};
-*/
 #endif

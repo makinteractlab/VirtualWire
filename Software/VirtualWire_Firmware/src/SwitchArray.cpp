@@ -13,7 +13,18 @@ void SwitchArray::update()
     sm.update();
 }
 
+// connect Breadbaord pin to Other
+bool SwitchArray::connect (const uint16_t& x, const uint16_t& y)
+{
+    if (x < 0 || x >SWITCHES) return false;
+    uint16_t chipID = y / SWITCHES;
+    if (chipID < 0 || chipID >CHIPS) return false;
+    uint16_t yy = y % SWITCHES;
 
+    if (chipID == 0) sm.twoWaysConnect (x, yy, chipID);
+    else sm.connect (x, yy, chipID);
+    return true;
+}
 
 void SwitchArray::connect (const BREADBOARD_PINS& x, const BREADBOARD_PINS& y)
 {
@@ -41,6 +52,16 @@ void SwitchArray::connect (const ARDUINO_ANALOG_PINS& y, const BREADBOARD_PINS& 
 }
 
 
+bool SwitchArray::disconnect (const uint16_t& x, const uint16_t& y)
+{
+    if (x < 0 || x >SWITCHES) return false;
+    uint16_t chipID = y / SWITCHES;
+    if (chipID < 0 || chipID >CHIPS) return false;
+    uint16_t yy = y % SWITCHES;
+    
+    sm.disconnect (x, yy, chipID);
+    return true;
+}
 
 void SwitchArray::disconnect (const BREADBOARD_PINS& x, const BREADBOARD_PINS& y)
 {
