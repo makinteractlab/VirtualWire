@@ -7,7 +7,7 @@
 
 // FORWARD DECLARATIONS
 void onMessageReady (const String& msg, WiFiEspClient* const client);
-
+void onTimerTick ();
 
 // GLOBALS
 SwitchArray switches (PCLK, SCLK, SIN);
@@ -16,38 +16,44 @@ void setup()
 {
   Serial.begin(BAUD_RATE);
 
-  // Testing the switching matrix
-  // switches.connect (BREADBOARD_PINS::P4, BREADBOARD_PINS::P9);
-  // switches.connect (BREADBOARD_PINS::P3, ARDUINO_DIGITAL_PINS::D4);
-  // switches.update();
-
+  // Reset the switches (done by default)
+  //  switches.reset();
 
   // Wifi
   Wifi::getInstance().baud(BAUD_RATE).port(PORT).debug(true);
   Wifi::getInstance().registerMsgReadyCallback (&onMessageReady);
   Wifi::getInstance().init((const char*)(F("VirtualWire")), IP(IP_ADDRESS));
 
-
   // App manager
-  AppManager::getInstance().init(&switches);
+  AppManager::getInstance().init(&switches, onTimerTick);
 
   // Statust OK
   AppManager::getInstance().blinkStatusLed();
 
+  // Test Voltage
+  // AppManager::getInstance().setVoltage(1260);
+
+  AppManager::getInstance().setWave (SIN_WAVE, 100, VOLT_MAX);
+  AppManager::getInstance().startWave();
 }
 
 void loop()
 {
-  Wifi::getInstance().listenToRequets();
+  Wifi::getInstance().listenToRequets();  
 }
 
 
 void onMessageReady (const String& msg, WiFiEspClient* const client)
 {
+  Serial.println (F("Incoming message:"));
+  Serial.println (msg);
   AppManager::getInstance().parseCommand(msg, client);
 }
 
-
+void onTimerTick()
+{
+  AppManager::getInstance().timerTick();
+}
 
 
 

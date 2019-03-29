@@ -6,6 +6,7 @@
 #define SCLK 15
 #define SIN 16
 #define STATUS_LED 10
+#define DAC_PIN A12
 
 // WIFI
 #define BAUD_RATE 115200 
@@ -21,6 +22,16 @@
 
 // Flags
 #define DEBUG 1
+
+// Others
+#define DAC_RESOLUTION 12
+#define DAC_TICK_MS 1
+#define DAC_MAX 4096
+#define VOLT_MAX 3300
+#define VOLT_MAX_HALF 1650
+
+#define MIN_FREQ 1
+#define MAX_FREQ 100
 
 
 

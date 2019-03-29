@@ -1,14 +1,18 @@
 #include "AppManager.hpp"
 #include "ArduinoJson.h"
+#include "MsTimer2.h"
+#include "functionGenerator.h"
 
-AppManager::AppManager()
+AppManager::AppManager() : type(SIN_WAVE), period(1000), amplitude(0), offset(0)
 {
     pinMode(STATUS_LED, OUTPUT);
+    analogWriteResolution(DAC_RESOLUTION);
 }
 
-void AppManager::init(SwitchArray *const switchArray)
+void AppManager::init(SwitchArray *const switchArray, TimerCallback call)
 {
     sa = switchArray;
+    timerCallback= call;
 }
 
 void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
@@ -92,4 +96,60 @@ void AppManager::ackOk(WiFiEspClient *const client)
         return;
     client->print(F("OK\r\n"));
     blinkStatusLed(1, 500);
+}
+
+void AppManager::setVoltage(uint16_t milliVolt)
+{
+    analogWrite(DAC_PIN, map(milliVolt, 0, VOLT_MAX, 0, DAC_MAX));
+}
+
+void AppManager::setWave(WAVE type, uint16_t freq, uint16_t amplitudeMvPP)
+{
+    this->type = type;
+    if (freq < MIN_FREQ) freq= MIN_FREQ;
+    if (freq > MAX_FREQ) freq= MAX_FREQ;
+    period = 1000/freq;
+
+    amplitude = amplitudeMvPP/2;
+    if (amplitude > VOLT_MAX_HALF) amplitude= VOLT_MAX_HALF;
+
+    offset = amplitude;
+}
+
+void AppManager::startWave()
+{
+    if (timerCallback)
+    {
+        MsTimer2::set(DAC_TICK_MS, timerCallback);
+        MsTimer2::start();
+    }
+}
+void AppManager::stopWave()
+{
+    MsTimer2::stop();
+}
+
+void AppManager::timerTick()
+{
+    uint32_t now = millis() % period;
+    float val = 0;
+    switch (type)
+    {
+    case SQUARE_WAVE:
+        val = fgsqr(now, period);
+        break;
+    case SAW_WAVE:
+        val = fgsaw(now, period);
+        break;
+    case TRIANGLE_WAVE:
+        val = fgtri(now, period);
+        break;
+    case SIN_WAVE:
+        val = fgsin(now, period);
+        break;
+    }
+    
+    // transform value
+    val = offset + amplitude* val;
+    analogWrite (DAC_PIN, (int)val);
 }
