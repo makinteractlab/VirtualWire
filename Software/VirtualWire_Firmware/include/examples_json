@@ -1,0 +1,12 @@
+// connect DAC
+{"cmd":"connect", "data": [0,31,1,43]}
+// connect ADC
+{"cmd":"connect", "data": [1,44]}
+// disconnect
+{"cmd":"disconnect", "data": [0,1]}
+// reset
+{"cmd":"reset"}
+// DAC
+{"cmd":"dac", "data":100}
+// ADC
+{"cmd":"adc"}
