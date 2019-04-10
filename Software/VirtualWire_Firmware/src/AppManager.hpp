@@ -30,8 +30,8 @@ class AppManager
 
     private:
        
-        void ackError (WiFiEspClient* const client);
-        void ackOk (WiFiEspClient* const client);
+        void ack (WiFiEspClient* const client, const String& msg);
+        void sendValue (WiFiEspClient* const client, uint32_t value);
 
         AppManager();  
         SwitchArray* sa;

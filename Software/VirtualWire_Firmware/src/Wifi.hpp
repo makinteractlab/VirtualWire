@@ -41,7 +41,6 @@ class Wifi
         String buffer;
         MsgReadyCallback callbackEvent;
 
-
         Wifi();       
         void printWifiData();
         void printCurrentNet();

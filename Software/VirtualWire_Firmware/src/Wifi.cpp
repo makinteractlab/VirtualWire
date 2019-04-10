@@ -71,14 +71,15 @@ void Wifi::listenToRequets()
         buffer+= c;
         
         if (c == '\n') {
-          // client.print("HTTP/1.1 200 OK\r\n");
-          (*callbackEvent)(buffer, &client);
+          // (*callbackEvent)(buffer, &client);
+          Serial.println(buffer);
           buffer=""; // clear buffer
           break;
         }
       }
     }
   }
+  
 }
 
 void Wifi::printWifiStats()

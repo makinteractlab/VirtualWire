@@ -23,8 +23,7 @@ void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
     if (error)
     {
         // Serial.print(F("JSON parse fail"));
-        if (client)
-            client->print("JSON parse fail\r\n");
+        ack (client, "JSON parse fail");
         return;
     }
     //  Serial.println(msg);
@@ -32,12 +31,18 @@ void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
     // Parse JSON
     if (json["cmd"] == F("connect") || json["cmd"] == F("disconnect"))
     {
+        if (!json.containsKey("data")) 
+        {
+            ack(client,"NoData");
+            return;
+        }
+        
         JsonArray data = json["data"].as<JsonArray>();
         uint16_t sz = data.size();
 
         if (sz & 1) // Error: odd number of elements in the array
         {
-            ackError(client);
+            ack (client, "JSON parse fail");
             return;
         }
         for (uint16_t i = 0; i < sz; i += 2)
@@ -51,34 +56,35 @@ void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
             if (result) // ok
             {
                 sa->update();
-                ackOk(client);
+                ack (client, "OK");
             }
             else
             {
-                ackError(client);
+                ack (client, "JSON parse fail");
             }
         }
     }
     else if (json["cmd"] == F("reset"))
     {
         sa->reset();
-        ackOk(client);
+        ack(client, "OK");
     
     }else if (json["cmd"] == F("dac")){
+        if (!json.containsKey("data")) 
+        {
+            ack(client,"NoData");
+            return;
+        }
         setVoltage (json["data"].as<int>());
-        ackOk(client);
+        ack(client,"OK");
 
     }else if (json["cmd"] == F("adc")){
         uint32_t volt= readVoltage();
-        client->print (volt);
-        client->print("\r\n");
+        sendValue (client, volt);
         
-    }else if (json["cmd"] == F("")){
-
-    }
-    else
+    } else
     {
-        ackError(client);
+        ack(client,"Parse Fail");
     }
 }
 
@@ -93,20 +99,20 @@ void AppManager::blinkStatusLed(uint16_t times, uint16_t ms)
     }
 }
 
-void AppManager::ackError(WiFiEspClient *const client)
+void AppManager::ack(WiFiEspClient *const client,  const String& msg)
 {
-    if (!client)
-        return;
-    client->print(F("ERR\r\n"));
+    if (!client) return;
+    String tosend= "{\"ack\":\"" + msg + "\"}";
+    client->print(tosend);
     blinkStatusLed(3, 500);
 }
 
-void AppManager::ackOk(WiFiEspClient *const client)
+void AppManager::sendValue(WiFiEspClient *const client,  uint32_t value)
 {
-    if (!client)
-        return;
-    client->print(F("OK\r\n"));
-    blinkStatusLed(1, 500);
+    if (!client) return;
+    String tosend= "{\"value\":\"" + String(value) + "\"}";
+    client->print(tosend);
+    blinkStatusLed(3, 500);
 }
 
 void AppManager::setVoltage(uint16_t milliVolt)

@@ -5,14 +5,6 @@
 #include "AppManager.hpp"
 
 
-// NOTES ABOUT DEVELOPMENT
-/*
-  DAC and ADC are working but I need to implement a continous value (push back to me)
-  for ADC. Like using a timer and setting start and END and everytime we receive a value, it send it back to server
-
-  Another option is to read a string of values and print those back
-*/
-
 
 // FORWARD DECLARATIONS
 void onMessageReady (const String& msg, WiFiEspClient* const client);
@@ -52,7 +44,7 @@ void loop()
 void onMessageReady (const String& msg, WiFiEspClient* const client)
 {
   if (!client) return;
-  Serial.println (F("Incoming message:"));
+  // Serial.println (F("Incoming message:"));
   Serial.println (msg);
   AppManager::getInstance().parseCommand(msg, client);
 }
