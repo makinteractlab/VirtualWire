@@ -6,3 +6,7 @@ Hardware/PCB/VirtualWire/__Previews/
 *.LOG
 
 Software/VirtualWire_Firmware/\.vscode/ipch/
+
+Software/VirtualWire_ServerJS/websockets/node_modules/
+
+Software/VirtualWire_ServerJS/websockets_demo/node_modules/
