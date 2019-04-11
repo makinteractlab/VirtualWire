@@ -6,7 +6,10 @@
 #define SCLK 15
 #define SIN 16
 #define STATUS_LED 10
-#define DAC_PIN A12
+// Teensy LC
+// #define DAC_PIN A12
+// Teensy 3.2
+#define DAC_PIN A14
 #define ADC_PIN A5
 
 // WIFI
