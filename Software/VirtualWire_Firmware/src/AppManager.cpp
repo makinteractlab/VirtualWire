@@ -26,7 +26,6 @@ void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
         ack (client, "JSON parse fail");
         return;
     }
-    //  Serial.println(msg);
 
     // Parse JSON
     if (json["cmd"] == F("connect") || json["cmd"] == F("disconnect"))
@@ -102,7 +101,7 @@ void AppManager::blinkStatusLed(uint16_t times, uint16_t ms)
 void AppManager::ack(WiFiEspClient *const client,  const String& msg)
 {
     if (!client) return;
-    String tosend= "{\"ack\":\"" + msg + "\"}";
+    String tosend= "{\"ack\":\"" + msg + "\"}\n";
     client->print(tosend);
     blinkStatusLed(3, 500);
 }
@@ -110,7 +109,7 @@ void AppManager::ack(WiFiEspClient *const client,  const String& msg)
 void AppManager::sendValue(WiFiEspClient *const client,  uint32_t value)
 {
     if (!client) return;
-    String tosend= "{\"value\":\"" + String(value) + "\"}";
+    String tosend= "{\"value\":\"" + String(value) + "\"}\n";
     client->print(tosend);
     blinkStatusLed(3, 500);
 }

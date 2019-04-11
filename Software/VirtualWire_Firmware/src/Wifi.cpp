@@ -62,7 +62,7 @@ void Wifi::listenToRequets()
 
   if (client)
   {
-    Serial.println("New client");
+    // Serial.println("New client");
     while (client.connected())
     {
       if (client.available())
@@ -71,8 +71,7 @@ void Wifi::listenToRequets()
         buffer+= c;
         
         if (c == '\n') {
-          // (*callbackEvent)(buffer, &client);
-          Serial.println(buffer);
+          (*callbackEvent)(buffer, &client);
           buffer=""; // clear buffer
           break;
         }

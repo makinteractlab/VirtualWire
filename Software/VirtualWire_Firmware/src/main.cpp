@@ -45,7 +45,7 @@ void onMessageReady (const String& msg, WiFiEspClient* const client)
 {
   if (!client) return;
   // Serial.println (F("Incoming message:"));
-  Serial.println (msg);
+  // Serial.println (msg);
   AppManager::getInstance().parseCommand(msg, client);
 }
 
