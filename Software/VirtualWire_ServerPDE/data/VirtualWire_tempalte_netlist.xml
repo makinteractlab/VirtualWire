@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+<netlist date="Mon Apr 29 11:09:31 2019" sketch="VirtualWire_tempalte.fzz">
+ <net>
+  <connector id="connector25" name="pin26">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector28" name="pin29">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector29" name="pin30">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector27" name="pin28">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector26" name="pin27">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector35" name="pin36">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector38" name="pin39">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector39" name="pin40">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector37" name="pin38">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector36" name="pin37">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector35" name="pin36">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector38" name="pin39">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector39" name="pin40">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector37" name="pin38">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector36" name="pin37">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector16" name="pin17">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector19" name="pin20">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector15" name="pin16">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector17" name="pin18">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector18" name="pin19">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector21" name="pin22">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector22" name="pin23">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector23" name="pin24">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector20" name="pin21">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector24" name="pin25">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector2" name="pin3">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector1" name="pin2">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector0" name="pin1">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector3" name="pin4">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector4" name="pin5">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector57" name="GND">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+  <connector id="connector88" name="GND">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+  <connector id="connector89" name="GND">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+  <connector id="connector4" name="pin5">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector1" name="pin2">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector0" name="pin1">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector3" name="pin4">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector2" name="pin3">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector7" name="pin8">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector6" name="pin7">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector8" name="pin9">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector5" name="pin6">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector9" name="pin10">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector32" name="pin33">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector33" name="pin34">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector30" name="pin31">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector34" name="pin35">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector31" name="pin32">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector9" name="pin10">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector7" name="pin8">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector6" name="pin7">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector8" name="pin9">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector5" name="pin6">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector11" name="pin12">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector14" name="pin15">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector10" name="pin11">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector12" name="pin13">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector13" name="pin14">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector25" name="pin26">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector28" name="pin29">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector29" name="pin30">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector27" name="pin28">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector26" name="pin27">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector31" name="pin32">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector33" name="pin34">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector30" name="pin31">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector32" name="pin33">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+  <connector id="connector34" name="pin35">
+   <part title="MicroBreadboard_right" label="MicroBreadboard_right1" id="494200"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector24" name="pin25">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector22" name="pin23">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector23" name="pin24">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector21" name="pin22">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector20" name="pin21">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector18" name="pin19">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector16" name="pin17">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector19" name="pin20">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector15" name="pin16">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector17" name="pin18">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector11" name="pin12">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector14" name="pin15">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector10" name="pin11">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector12" name="pin13">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+  <connector id="connector13" name="pin14">
+   <part title="MicroBreadboard_left" label="MicroBreadboard_left1" id="490800"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector90" name="VIN">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector86" name="3V3">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector58" name="AREF">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector67" name="D6 PWM">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector53" name="D10 PWM/SS">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector5" name="A5/SCL">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector55" name="D12/MISO">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector60" name="A5/SCL">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector2" name="A2">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector87" name="5V">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector61" name="D0/RX">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector62" name="D1/TX">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector51" name="D8">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector4" name="A4/SDA">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector64" name="D3 PWM">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector3" name="A3">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector63" name="D2">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector66" name="D5 PWM">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector0" name="A0">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector84" name="ioref">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector68" name="D7">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector52" name="D9 PWM">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector54" name="D11 PWM/MOSI">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector59" name="A4/SDA">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector65" name="D4">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector85" name="RESET">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector91" name="N/C">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector1" name="A1">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+ <net>
+  <connector id="connector56" name="D13/SCK">
+   <part title="ArduinoUno" label="ArduinoUno1" id="494230"/>
+  </connector>
+ </net>
+</netlist>
