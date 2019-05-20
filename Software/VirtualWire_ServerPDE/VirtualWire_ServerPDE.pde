@@ -62,7 +62,7 @@ void fileSelected(File selection) {
       cmdNum = 0;
       
       commands = new JSONArray();
-      xml = loadXML("VirtualWire_tempalte.fz");
+      xml = loadXML(file.getName());
       
       XML instances = xml.getChild("instances");
       XML[] instList = instances.getChildren("instance");

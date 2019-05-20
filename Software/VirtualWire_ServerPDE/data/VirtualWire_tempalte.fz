@@ -886,7 +886,7 @@
             <title>Q1</title>
             <views>
                 <breadboardView layer="breadboard">
-                    <geometry z="3.00019" x="278.936" y="42.8202">
+                    <geometry z="3.00019" x="279.241" y="42.8202">
                         <transform m11="0" m12="-1" m13="0" m21="1" m22="0" m23="0" m31="-4.7187" m32="25.3773" m33="1"/>
                     </geometry>
                     <connectors>
@@ -997,6 +997,8 @@
                             <leg>
                                 <point x="0" y="0"/>
                                 <bezier/>
+                                <point x="-15.9146" y="-10.9991"/>
+                                <bezier/>
                                 <point x="-6.81323" y="-67.3049"/>
                                 <bezier/>
                             </leg>
@@ -1069,7 +1071,7 @@
             <title>R1</title>
             <views>
                 <breadboardView layer="breadboard">
-                    <geometry z="3.00017" x="279.088" y="-42.1263"/>
+                    <geometry z="3.00017" x="293.399" y="-39.9948"/>
                     <connectors>
                         <connector connectorId="connector0" layer="breadboard">
                             <geometry x="2.619" y="4.5405"/>
@@ -1143,6 +1145,27 @@
                     </connectors>
                 </schematicView>
             </views>
+        </instance>
+        <instance moduleIdRef="WireModuleID" modelIndex="50065" path=":/resources/parts/core/wire.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="WireModuleID" modelIndex="50072" path=":/resources/parts/core/wire.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="WireModuleID" modelIndex="50095" path=":/resources/parts/core/wire.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="WireModuleID" modelIndex="50102" path=":/resources/parts/core/wire.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="WireModuleID" modelIndex="50109" path=":/resources/parts/core/wire.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="WireModuleID" modelIndex="50116" path=":/resources/parts/core/wire.fzp">
+            <views/>
+        </instance>
+        <instance moduleIdRef="WireModuleID" modelIndex="50123" path=":/resources/parts/core/wire.fzp">
+            <views/>
         </instance>
     </instances>
 </module>

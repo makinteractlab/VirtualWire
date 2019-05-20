@@ -1,82 +1,32 @@
 [
   {
-    "from": "line8",
-    "Command Number": 0,
-    "to": "line0"
-  },
-  {
-    "from": "GND  ",
-    "Command Number": 1,
-    "to": "line0"
-  },
-  {
-    "from": "line9",
-    "Command Number": 2,
-    "to": "line8"
-  },
-  {
-    "from": "line15",
-    "Command Number": 3,
-    "to": "line12"
-  },
-  {
-    "from": "line15",
-    "Command Number": 4,
-    "to": "line12"
-  },
-  {
-    "from": "GND  ",
-    "Command Number": 5,
-    "to": "line14"
-  },
-  {
-    "from": "line8",
-    "Command Number": 6,
-    "to": "line0"
-  },
-  {
-    "from": "GND  ",
-    "Command Number": 7,
-    "to": "line0"
-  },
-  {
-    "from": "line9",
-    "Command Number": 8,
-    "to": "line8"
-  },
-  {
-    "from": "line15",
-    "Command Number": 9,
-    "to": "line12"
-  },
-  {
-    "from": "GND  ",
-    "Command Number": 10,
-    "to": "line14"
-  },
-  {
     "from": "line10",
-    "Command Number": 11,
+    "Command Number": 0,
     "to": "line8"
   },
   {
     "from": "line11",
-    "Command Number": 12,
+    "Command Number": 1,
     "to": "line10"
   },
   {
     "from": "line6",
-    "Command Number": 13,
+    "Command Number": 2,
     "to": "line12"
   },
   {
     "from": "line15",
-    "Command Number": 14,
+    "Command Number": 3,
     "to": "line1"
   },
   {
     "from": "line2",
-    "Command Number": 15,
+    "Command Number": 4,
     "to": "line5"
+  },
+  {
+    "from": "line4",
+    "Command Number": 5,
+    "to": "line3"
   }
 ]
