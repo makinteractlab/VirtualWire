@@ -23,10 +23,5 @@
     "from": "line2",
     "Command Number": 4,
     "to": "line5"
-  },
-  {
-    "from": "line4",
-    "Command Number": 5,
-    "to": "line3"
   }
 ]

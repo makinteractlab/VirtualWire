@@ -4,7 +4,6 @@ import java.io.*;
 XML xml;
 JSONArray commands;
 
-int cmdNum;
 String id, part, name, label;
 
 ArrayList<Map> mapping = new ArrayList<Map>();
@@ -55,14 +54,28 @@ void fileSelected(File selection) {
       // here we code the action on a change
       println( "File "+ file.getName() +" have change !" );
       
+      delay(1000);
+      
+      String fileName = dataPath("commands.json");
+      File f = new File(fileName);
+      if (f.exists()) {
+        f.delete();
+      }
+      
       int id;
       String title;
       int lConn, rConn;
       int lComp, rComp;
-      cmdNum = 0;
+      JSONObject cmdJSONObj;
+      int cmdNum = 0;
       
       commands = new JSONArray();
-      xml = loadXML(file.getName());
+      mapping = new ArrayList<Map>();
+      wires = new ArrayList<Wire>();
+      commandList = new ArrayList<Command>();
+      netParts = new ArrayList<String>();
+      
+      xml = loadXML(file.getName());//try catch, diff event w/flag, delay save 1 sec, manual save load
       
       XML instances = xml.getChild("instances");
       XML[] instList = instances.getChildren("instance");
@@ -108,7 +121,7 @@ void fileSelected(File selection) {
         if(c.getFrom().substring(0, 4).equals("Wire")) continue;
         if(c.getTo().substring(0, 4).equals("Wire")) continue;
         
-        JSONObject cmdJSONObj = new JSONObject();
+        cmdJSONObj = new JSONObject();
         
         cmdJSONObj.setInt("Command Number", cmdNum);
         cmdJSONObj.setString("from", c.getFrom());
@@ -118,6 +131,7 @@ void fileSelected(File selection) {
         cmdNum++;
       }
       
+      //println(commands);
       saveJSONArray(commands, "data/commands.json");
       println("commands.json file saved");
     }
@@ -258,6 +272,10 @@ String node(int conn, int comp){
   if(t.equals("MicroBreadboard_right1")){ return "line" + ((conn/5)+8); }
   
   return "Error: Nonexistent Connector and Component Pair";
+}
+
+void removeJSONDuplicates(String filename){
+  
 }
 
 ArrayList<Command> formatCommands(ArrayList<Command> commandList){
