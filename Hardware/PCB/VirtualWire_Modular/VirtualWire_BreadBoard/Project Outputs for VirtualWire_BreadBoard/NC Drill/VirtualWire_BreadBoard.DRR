@@ -1,0 +1,16 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: VirtualWire_BreadBoard.PcbDoc   5/30/2019  8:15:13 AM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : VirtualWire_BreadBoard-RoundHoles.TXT
+ASCII SlotHoles File : VirtualWire_BreadBoard-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      35mil (0.9mm)                                             Round             16        PTH        0.00inch (0.00mm)
+T2      47mil (1.2mm)                                             Slot              18        NPTH       0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              34
+
+Total Processing Time (hh:mm:ss) : 00:00:00

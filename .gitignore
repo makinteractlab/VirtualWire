@@ -10,3 +10,7 @@ Software/VirtualWire_Firmware/\.vscode/ipch/
 Software/VirtualWire_ServerJS/websockets/node_modules/
 
 Software/VirtualWire_ServerJS/websockets_demo/node_modules/
+
+Hardware/PCB/VirtualWire_Modular/VirtualWire_BreadBoard/__Previews/
+
+Hardware/PCB/VirtualWire_Modular/VirtualWire_BreadBoard/History/

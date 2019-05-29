@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [VirtualWire_BreadBoard.PcbDoc]
+   Generated File[VirtualWire_BreadBoard-RoundHoles.TXT]
+   Generated File[VirtualWire_BreadBoard-SlotHoles.TXT]
+   Generated File[VirtualWire_BreadBoard.LDP]
+   Generated File[VirtualWire_BreadBoard.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 8:15:14 AM On 5/30/2019
