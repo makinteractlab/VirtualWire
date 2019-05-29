@@ -1,0 +1,32 @@
+[
+  {
+    "from": "5",
+    "cmd": "connect",
+    "to": "7"
+  },
+  {
+    "from": "7",
+    "cmd": "connect",
+    "to": "15"
+  },
+  {
+    "from": "11",
+    "cmd": "connect",
+    "to": "12"
+  },
+  {
+    "from": "8",
+    "cmd": "connect",
+    "to": "GND"
+  },
+  {
+    "from": "GND",
+    "cmd": "connect",
+    "to": "0"
+  },
+  {
+    "from": "1",
+    "cmd": "connect",
+    "to": "6"
+  }
+]
