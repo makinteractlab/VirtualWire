@@ -20,7 +20,7 @@ class AppManager
         }
 
         void init (SwitchArray* const switchArray);
-        void parseCommand (const String& msg, WiFiEspClient* const client);
+        void parseCommand (const String& msg, Stream* const client);
         void blinkStatusLed(uint16_t times=1, uint16_t ms=1000);
         
         // DAC
@@ -30,8 +30,8 @@ class AppManager
 
     private:
        
-        void ack (WiFiEspClient* const client, const String& msg);
-        void sendValue (WiFiEspClient* const client, uint32_t value);
+        void ack (Stream* const client, const String& msg);
+        void sendValue (Stream* const client, uint32_t value);
 
         AppManager();  
         SwitchArray* sa;

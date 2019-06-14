@@ -14,7 +14,7 @@ void AppManager::init(SwitchArray *const switchArray)
     sa = switchArray;
 }
 
-void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
+void AppManager::parseCommand(const String &msg, Stream *const client)
 {
     StaticJsonDocument<BUFFER_SIZE> json;
     DeserializationError error = deserializeJson(json, msg);
@@ -48,9 +48,9 @@ void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
         {
             bool result = false;
             if (json["cmd"] == F("connect"))
-                result = sa->connect(data[i].as<int>(), data[i + 1].as<int>());
+                result = sa->connect(data[i].as<String>(), data[i + 1].as<String>());
             else
-                result = sa->disconnect(data[i].as<int>(), data[i + 1].as<int>());
+                result = sa->disconnect(data[i].as<String>(), data[i + 1].as<String>());
 
             if (result) // ok
             {
@@ -62,6 +62,26 @@ void AppManager::parseCommand(const String &msg, WiFiEspClient *const client)
                 ack (client, "JSON parse fail");
             }
         }
+    }
+    else if (json["cmd"] == F("status"))
+    {
+        if (!json.containsKey("data")) 
+        {
+            ack(client,"NoData");
+            return;
+        }
+        JsonArray data = json["data"].as<JsonArray>();
+        uint16_t sz = data.size();
+
+        if (sz != 2) // Error: only pairs are ok
+        {
+            ack (client, "JSON parse fail");
+            return;
+        }
+
+        bool result = sa->areConnected(data[0].as<String>(), data[1].as<String>());
+        if (result) ack (client, "Connected");
+        else ack (client, "Disconnected");
     }
     else if (json["cmd"] == F("reset"))
     {
@@ -98,7 +118,7 @@ void AppManager::blinkStatusLed(uint16_t times, uint16_t ms)
     }
 }
 
-void AppManager::ack(WiFiEspClient *const client,  const String& msg)
+void AppManager::ack(Stream *const client,  const String& msg)
 {
     if (!client) return;
     String tosend= "{\"ack\":\"" + msg + "\"}\n";
@@ -106,7 +126,7 @@ void AppManager::ack(WiFiEspClient *const client,  const String& msg)
     blinkStatusLed(3, 500);
 }
 
-void AppManager::sendValue(WiFiEspClient *const client,  uint32_t value)
+void AppManager::sendValue(Stream *const client,  uint32_t value)
 {
     if (!client) return;
     String tosend= "{\"value\":\"" + String(value) + "\"}\n";

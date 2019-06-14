@@ -8,13 +8,15 @@
 #define CHIPS 3
 #define SWITCHES 16
 
-#define BREADBOARD_PINS_CHIP 0
+#define BREADBOARD_ROWS_CHIP 0
 #define ARDUINO_DIGITAL_PINS_CHIP 1
 #define ARDUINO_ANALOG_PINS_CHIP 2
 
-enum class BREADBOARD_PINS {P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16};
-enum class ARDUINO_DIGITAL_PINS {D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, AREF, GND1};
-enum class ARDUINO_ANALOG_PINS {A0, A1, A2, A3, A4, A5, VIN, A5V, A3V, RESET, IOREF, DAC, ADC, PWM, GND2, GND3};
+// The order of these pins is very important
+enum class PINS {ROW1, ROW2, ROW3, ROW4, ROW5, ROW6, ROW7, ROW8, ROW9, ROW10, ROW11, ROW12, ROW13, ROW14, ROW15, ROW16, 
+                 D0, D1, D2, D3, D4, D5, D6, D7, D8, D9, D10, D11, D12, D13, AREF, GND1,  
+                 A0, A1, A2, A3, A4, A5, VIN, A5V, A3V, RESET, IOREF, DAC, ADC, PWM, GND2, GND3, NO_SELECTION};
+
 
 class SwitchArray
 {
@@ -25,25 +27,22 @@ class SwitchArray
       void reset();
       void update();
 
+      // These routines will not check wheather the connection is possible.
+      // They assume a correct input from the clinet device
       bool connect (const uint16_t& x, const uint16_t& y);
-      void connect (const BREADBOARD_PINS& x, const BREADBOARD_PINS& y);
-      void connect (const BREADBOARD_PINS& x, const ARDUINO_DIGITAL_PINS& y);
-      void connect (const BREADBOARD_PINS& x, const ARDUINO_ANALOG_PINS& y);
-      void connect (const ARDUINO_DIGITAL_PINS& y, const BREADBOARD_PINS& x);
-      void connect (const ARDUINO_ANALOG_PINS& y, const BREADBOARD_PINS& x);
+      bool connect (const String& x, const String& y);
+      bool connect (const PINS& x, const PINS& y);
 
       bool disconnect (const uint16_t& x, const uint16_t& y);
-      void disconnect (const BREADBOARD_PINS& x, const BREADBOARD_PINS& y);
-      void disconnect (const BREADBOARD_PINS& x, const ARDUINO_DIGITAL_PINS& y);
-      void disconnect (const BREADBOARD_PINS& x, const ARDUINO_ANALOG_PINS& y);
-      void disconnect (const ARDUINO_DIGITAL_PINS& y, const BREADBOARD_PINS& x);
-      void disconnect (const ARDUINO_ANALOG_PINS& y, const BREADBOARD_PINS& x);
+      bool disconnect (const String& x, const String& y);
+      bool disconnect (const PINS& x, const PINS& y);
 
-      void areConnected (const BREADBOARD_PINS& x, const BREADBOARD_PINS& y);
-      void areConnected (const BREADBOARD_PINS& x, const ARDUINO_DIGITAL_PINS& y);
-      void areConnected (const BREADBOARD_PINS& x, const ARDUINO_ANALOG_PINS& y);
-      void areConnected(const ARDUINO_DIGITAL_PINS& y, const BREADBOARD_PINS& x);
-      void areConnected(const ARDUINO_ANALOG_PINS& y, const BREADBOARD_PINS& x);
+      bool areConnected (const uint16_t& x, const uint16_t& y);
+      bool areConnected (const String& x, const String& y);
+      bool areConnected (const PINS& x, const PINS& y);
+
+    private:
+      PINS stringToPIN (const String& s);
 };
 
 #endif 

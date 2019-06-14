@@ -7,18 +7,16 @@
 
 
 // FORWARD DECLARATIONS
-void onMessageReady (const String& msg, WiFiEspClient* const client);
+void onMessageReady (const String& msg, Stream* const client);
 
 
 // GLOBALS
 SwitchArray switches (PCLK, SCLK, SIN);
+String buffer ="";
 
 void setup()
 {
   Serial.begin(BAUD_RATE);
-
-  // Reset the switches (done by default)
-  //  switches.reset();
 
   // Wifi
   Wifi::getInstance().baud(BAUD_RATE).port(PORT).debug(true);
@@ -31,17 +29,36 @@ void setup()
   // Statust OK
   AppManager::getInstance().blinkStatusLed();
 
-  // Test Voltage
+  // Test Voltage example
   // AppManager::getInstance().setVoltage(1260);
+
+  // Ready
+  Serial.println("Ready");
 }
 
 void loop()
 {
+  // Wifi
   Wifi::getInstance().listenToRequets();  
+
+  // Serial
+  while (Serial.available())
+  {
+    char inChar = (char)Serial.read();
+    if (inChar == '\n')
+    {
+      onMessageReady(buffer, &Serial);
+      buffer = "";
+    }
+    else
+    {
+      buffer += inChar;
+    }
+  }
 }
 
 
-void onMessageReady (const String& msg, WiFiEspClient* const client)
+void onMessageReady (const String& msg, Stream* const client)
 {
   if (!client) return;
   // Serial.println (F("Incoming message:"));

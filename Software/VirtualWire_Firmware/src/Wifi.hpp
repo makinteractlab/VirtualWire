@@ -5,7 +5,7 @@
 #include "WiFiEsp.h"
 
 // Define the callback
-typedef void (*MsgReadyCallback)(const String&, WiFiEspClient* const);
+typedef void (*MsgReadyCallback)(const String&, Stream* const);
 
 class IP
 {

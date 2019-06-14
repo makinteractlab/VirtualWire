@@ -1,12 +1,28 @@
-// connect DAC
-{"cmd":"connect", "data": [0,31,1,43]}
-// connect ADC
-{"cmd":"connect", "data": [1,44]}
-// disconnect
-{"cmd":"disconnect", "data": [0,1]}
-// reset
+// RESET
 {"cmd":"reset"}
+
+// CONNECT AND DISCONNECT
+// connect one: ROW1-ROW2
+{"cmd":"connect", "data": ["ROW1", "ROW2"]}
+// connect multiple: ROW1-ROW2, ROW3-A0
+{"cmd":"connect", "data": ["ROW1", "ROW2", "ROW3", "A0"]}
+
+// disconnect one: ROW1-ROW2
+{"cmd":"disconnect", "data": ["ROW1", "ROW2"]}
+// connect multiple: ROW1-ROW2, ROW3-A0
+{"cmd":"disconnect", "data": ["ROW1", "ROW2", "ROW3", "A0"]}
+
+// CHECK CONNECTION
+{"cmd":"status", "data": ["ROW1", "ROW2"]}
 // DAC
 {"cmd":"dac", "data":100}
 // ADC
 {"cmd":"adc"}
+
+
+
+
+// EXAMPLES
+/// DAC
+{"cmd":"connect", "data": ["ROW1", "GND1", "ROW2", "DAC"]}
+{"cmd":"dac", "data":100}
