@@ -310,8 +310,8 @@ String node(int conn, int comp){
     return "Error: Nonexistent Connector and Component Pair";
   }
   
-  if(t.equals("MicroBreadboard_left1")){ return "ROW" + conn/5; }
-  if(t.equals("MicroBreadboard_right1")){ return "ROW" + ((conn/5)+8); }
+  if(t.equals("MicroBreadboard_left1")){ return "ROW" + ((conn/5)+1); }
+  if(t.equals("MicroBreadboard_right1")){ return "ROW" + ((conn/5)+9); }
   
   return "Error: Nonexistent Connector and Component Pair";
 }
@@ -373,8 +373,8 @@ String connectorToLabel(String id, String part){
   
   int connectorNum = Integer.parseInt(id.substring(9));
   
-  if(part.equals("MicroBreadboard_left1") == true) resNum = connectorNum/5;
-  else resNum = (connectorNum/5)+8;
+  if(part.equals("MicroBreadboard_left1") == true) resNum = (connectorNum/5)+1;
+  else resNum = (connectorNum/5)+9;
   
   result = result + resNum;
   
