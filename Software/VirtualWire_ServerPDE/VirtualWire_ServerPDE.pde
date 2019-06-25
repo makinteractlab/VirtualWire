@@ -69,13 +69,15 @@ void fileSelected(File selection) {
         updateConnections(file);
         
         delay(2000);
-        updateCommands();
+        //updateCommands();
+        updateCommands_Multi();
         
         if(firstSave){
           firstSave = false;
           newSerial();
         }
         
+        printAllCommands();
         runAllCommands();
         
         
@@ -120,6 +122,44 @@ void printAllCommands(){
     JSONObject command = allCommands.getJSONObject(i);
     println(command.getString("Command"));
   }
+}
+
+void updateCommands_Multi(){
+  CurrentConnections = loadJSONArray("CurrentConnections.json");
+  ArrayList<String> pairs = new ArrayList<String>();
+  Commands = new JSONArray();
+  
+  JSONObject initialReset = new JSONObject();
+  initialReset.setInt("a_Command Number", 0);
+  initialReset.setString("Command", new Command("reset").toString());
+  Commands.setJSONObject(0, initialReset);
+  
+  
+  for(int i = 0; i < CurrentConnections.size(); i++){
+    JSONObject wireConnection = CurrentConnections.getJSONObject(i);
+    
+    String from = wireConnection.getString("from");
+    String to = wireConnection.getString("to");
+    
+    pairs.add(from);
+    pairs.add(to);
+    
+  }
+  
+  String cmd1 = "{\"cmd\":\"connect\", \"data\": [\"";
+  
+  for(int i = 0; i < pairs.size()-1; i++){
+    cmd1 = cmd1 + pairs.get(i) + "\", \"";
+  }
+  cmd1 = cmd1 + pairs.get(pairs.size()-1) + "\"]}";
+  
+  JSONObject connectionCommand = new JSONObject();
+  connectionCommand.setInt("a_Command Number", 1);
+  connectionCommand.setString("Command", cmd1);
+  Commands.setJSONObject(1, connectionCommand);
+  // "{\"cmd\":\"connect\", \"data\": [\"" + data[0] + "\", \"" + data[1] + "\"]}"
+  
+  saveJSONArray(Commands, "data/Commands.json");
 }
 
 void updateCommands(){
@@ -324,9 +364,15 @@ ArrayList<Connection> removeDuplicateConnections(ArrayList<Connection> connectio
     
     add = true;
     for(Connection res: result){
+      /*
       if(c.getWireNum().equals(res.getWireNum()) && 
          c.getFrom().equals(res.getFrom()) && 
          c.getTo().equals(res.getTo())){
+        add = false;
+      }
+      */
+      if(c.getFrom().equals(res.getFrom()) && c.getTo().equals(res.getTo()) ||
+         c.getFrom().equals(res.getTo()) && c.getTo().equals(res.getFrom())){
         add = false;
       }
     }
@@ -523,12 +569,9 @@ private void prepareExitHandler() {
 }
 
 void serialEvent(Serial p) {
-  
   inString = p.readStringUntil(10);
-  //myPort.clear();
   if(inString != null){
     println(inString);
-    //myPort.clear();
     serialCmdIndex++;
     
     if(serialCmdIndex < allCommands.size()){
@@ -540,7 +583,6 @@ void serialEvent(Serial p) {
     }else{
       serialCmdIndex = 0;
       println("CONNECTIONS UPDATED!!!");
-      //myPort.stop();
     }
   }
   
