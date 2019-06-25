@@ -14,7 +14,7 @@ void AppManager::init(SwitchArray *const switchArray)
     sa = switchArray;
 }
 
-void AppManager::parseCommand(const String &msg, Stream *const client)
+bool AppManager::parseCommand(const String &msg, Stream *const client)
 {
     StaticJsonDocument<BUFFER_SIZE> json;
     DeserializationError error = deserializeJson(json, msg);
@@ -24,7 +24,7 @@ void AppManager::parseCommand(const String &msg, Stream *const client)
     {
         // Serial.print(F("JSON parse fail"));
         ack (client, "JSON parse fail");
-        return;
+        return false;
     }
 
     // Parse JSON
@@ -33,7 +33,7 @@ void AppManager::parseCommand(const String &msg, Stream *const client)
         if (!json.containsKey("data")) 
         {
             ack(client,"NoData");
-            return;
+            return false;
         }
         
         JsonArray data = json["data"].as<JsonArray>();
@@ -42,7 +42,7 @@ void AppManager::parseCommand(const String &msg, Stream *const client)
         if (sz & 1) // Error: odd number of elements in the array
         {
             ack (client, "JSON parse fail");
-            return;
+            return false;
         }
         for (uint16_t i = 0; i < sz; i += 2)
         {
@@ -52,15 +52,14 @@ void AppManager::parseCommand(const String &msg, Stream *const client)
             else
                 result = sa->disconnect(data[i].as<String>(), data[i + 1].as<String>());
 
-            if (result) // ok
-            {
-                sa->update();
-                ack (client, "OK");
-            }
-            else
+            if (!result) // not ok
             {
                 ack (client, "JSON parse fail");
+                return false;
             }
+            
+            sa->update();
+            ack (client, "OK");
         }
     }
     else if (json["cmd"] == F("status"))
@@ -68,7 +67,7 @@ void AppManager::parseCommand(const String &msg, Stream *const client)
         if (!json.containsKey("data")) 
         {
             ack(client,"NoData");
-            return;
+            return  false;
         }
         JsonArray data = json["data"].as<JsonArray>();
         uint16_t sz = data.size();
@@ -76,7 +75,7 @@ void AppManager::parseCommand(const String &msg, Stream *const client)
         if (sz != 2) // Error: only pairs are ok
         {
             ack (client, "JSON parse fail");
-            return;
+            return false;
         }
 
         bool result = sa->areConnected(data[0].as<String>(), data[1].as<String>());
@@ -92,7 +91,7 @@ void AppManager::parseCommand(const String &msg, Stream *const client)
         if (!json.containsKey("data")) 
         {
             ack(client,"NoData");
-            return;
+            return false;
         }
         setVoltage (json["data"].as<int>());
         ack(client,"OK");
@@ -104,7 +103,11 @@ void AppManager::parseCommand(const String &msg, Stream *const client)
     } else
     {
         ack(client,"Parse Fail");
+        return false;
     }
+
+    // all cases left
+    return true;
 }
 
 void AppManager::blinkStatusLed(uint16_t times, uint16_t ms)

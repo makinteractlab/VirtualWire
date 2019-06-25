@@ -63,7 +63,8 @@ void onMessageReady (const String& msg, Stream* const client)
   if (!client) return;
   // Serial.println (F("Incoming message:"));
   // Serial.println (msg);
-  AppManager::getInstance().parseCommand(msg, client);
+  bool ack= AppManager::getInstance().parseCommand(msg, client);
+  if (!ack) buffer ="";
 }
 
 
