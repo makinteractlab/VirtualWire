@@ -20,7 +20,7 @@ class AppManager
         }
 
         void init (SwitchArray* const switchArray);
-        void parseCommand (const String& msg, Stream* const client);
+        bool parseCommand (const String& msg, Stream* const client);
         void blinkStatusLed(uint16_t times=1, uint16_t ms=1000);
         
         // DAC
