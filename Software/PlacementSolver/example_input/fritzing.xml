@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+<netlist date="Fri Jun 28 13:31:02 2019" sketch="1st sketch.fzz">
+ <net>
+  <connector name="Pin 1" id="connector1">
+   <part title="220Ω Resistor" id="57890" label="R2"/>
+  </connector>
+  <connector name="-" id="connector0">
+   <part title="Electrolytic Capacitor" id="60140" label="C1"/>
+  </connector>
+  <connector name="0" id="connector0">
+   <part title="Ceramic Capacitor" id="60170" label="C2"/>
+  </connector>
+  <connector name="-" id="connector0">
+   <part title="Battery" id="58580" label="VCC1"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="Pin 0" id="connector0">
+   <part title="220Ω Resistor" id="57860" label="R1"/>
+  </connector>
+  <connector name="+" id="connector1">
+   <part title="Electrolytic Capacitor" id="60140" label="C1"/>
+  </connector>
+  <connector name="Pin 0" id="connector0">
+   <part title="220Ω Resistor" id="57890" label="R2"/>
+  </connector>
+  <connector name="1" id="connector1">
+   <part title="Ceramic Capacitor" id="60170" label="C2"/>
+  </connector>
+ </net>
+ <net>
+  <connector name="Pin 1" id="connector1">
+   <part title="220Ω Resistor" id="57860" label="R1"/>
+  </connector>
+  <connector name="+" id="connector1">
+   <part title="Battery" id="58580" label="VCC1"/>
+  </connector>
+ </net>
+</netlist>
