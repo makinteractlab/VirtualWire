@@ -57,10 +57,11 @@ bool AppManager::parseCommand(const String &msg, Stream *const client)
                 ack (client, "JSON parse fail");
                 return false;
             }
-            
-            sa->update();
-            ack (client, "OK");
         }
+            
+        sa->update();
+        ack (client, "OK");
+        
     }
     else if (json["cmd"] == F("status"))
     {

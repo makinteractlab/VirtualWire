@@ -17,7 +17,7 @@
 #define WIFI_RESET 6
 #define IP_ADDRESS 192, 168, 0, 1
 #define PORT 8080
-#define BUFFER_SIZE 160
+#define BUFFER_SIZE 512
 
 // EEPROM
 #define EEPROM_SIZE 128
