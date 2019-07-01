@@ -1,5 +1,5 @@
 import java.util.*;
-import java.io.*;
+import java.io.*; 
 import processing.serial.*;
 
 int lastChangeTime;
@@ -33,7 +33,7 @@ TimerTask task;
 
 void setup(){
   printArray(Serial.list());
-  myPort = new Serial(this, Serial.list()[2], 115200); 
+  myPort = new Serial(this, Serial.list()[3], 115200); 
   
   lastChangeTime = millis();
   
@@ -98,7 +98,7 @@ void fileSelected(File selection) {
 //
 
 void newSerial(){
-  myPort = new Serial(this, Serial.list()[2], 115200);
+  myPort = new Serial(this, Serial.list()[3], 115200);
 }
 
 void runAllCommands(){
@@ -141,8 +141,11 @@ void updateCommands_Multi(){
     String from = wireConnection.getString("from");
     String to = wireConnection.getString("to");
     
-    pairs.add(from);
-    pairs.add(to);
+    if(!from.substring(0, 2).equals("Er") && !to.substring(0, 2).equals("Er")){
+      pairs.add(from);
+      pairs.add(to);
+    }
+    
     
   }
   
@@ -159,7 +162,7 @@ void updateCommands_Multi(){
   Commands.setJSONObject(1, connectionCommand);
   // "{\"cmd\":\"connect\", \"data\": [\"" + data[0] + "\", \"" + data[1] + "\"]}"
   
-  saveJSONArray(Commands, "data/Commands.json");
+  saveJSONArray(Commands, "Commands.json");
 }
 
 void updateCommands(){
@@ -171,41 +174,28 @@ void updateCommands(){
   initialReset.setString("Command", new Command("reset").toString());
   Commands.setJSONObject(0, initialReset);
   
-  int i = 0;
-  while(i < CurrentConnections.size()){
+  int cmdNum = 1;
+  for(int i = 0; i < CurrentConnections.size(); i++){
     JSONObject wireConnection = CurrentConnections.getJSONObject(i);
     
     String from = wireConnection.getString("from");
     String to = wireConnection.getString("to");
     
-    JSONObject connectionCommand = new JSONObject();
+    if(!from.substring(0, 2).equals("Er") && !to.substring(0, 2).equals("Er")){
+      JSONObject connectionCommand = new JSONObject();
+      
+      connectionCommand.setInt("a_Command Number", cmdNum);
+      connectionCommand.setString("Command", new Command("connect", from, to).toString());
+      Commands.setJSONObject(cmdNum, connectionCommand);
+      
+      cmdNum++;
+    }
     
-    connectionCommand.setInt("a_Command Number", i+1);
-    connectionCommand.setString("Command", new Command("connect", from, to).toString());
-    Commands.setJSONObject(i+1, connectionCommand);
-    
-    i++;
     //println(connectionNumber + ": " + from + ", " + to);
   }
   
-  int plus = i + 1;
-  int j = 0;
-  while(j < CurrentConnections.size()){
-    JSONObject wireConnection = CurrentConnections.getJSONObject(j);
-    
-    String from = wireConnection.getString("from");
-    String to = wireConnection.getString("to");
-    
-    JSONObject connectionCommand = new JSONObject();
-    
-    connectionCommand.setInt("a_Command Number", j+plus);
-    connectionCommand.setString("Command", new Command("status", from, to).toString());
-    Commands.setJSONObject(j+plus, connectionCommand);
-    
-    j++;
-  }
   
-  saveJSONArray(Commands, "data/Commands.json");
+  saveJSONArray(Commands, "Commands.json");
 }
 
 void updateConnections(File file){
@@ -215,7 +205,7 @@ void updateConnections(File file){
   connectionList = new ArrayList<Connection>();
   formattedConnectionList = new ArrayList<Connection>();
   formattedConnectionListNoDup = new ArrayList<Connection>();
-  File f = new File(dataPath("data/CurrentConnections.json"));
+  File f = new File(dataPath("CurrentConnections.json"));
   if (f.exists()) f.delete();
   
   int id;
@@ -284,7 +274,7 @@ void updateConnections(File file){
     ctnNum++;
   }
   
-  saveJSONArray(connections, "data/CurrentConnections.json");
+  saveJSONArray(connections, "CurrentConnections.json");
   println("CurrentConnections.json file saved");
 }
 
