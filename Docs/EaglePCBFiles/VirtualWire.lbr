@@ -188,6 +188,76 @@ Includes mounting holes, and holes for ICSP header
 <wire x1="19.05" y1="10.16" x2="19.05" y2="-11.43" width="0.127" layer="51"/>
 <wire x1="-12.7" y1="-11.43" x2="19.05" y2="-11.43" width="0.127" layer="49"/>
 </package>
+<package name="ARDUINO_R3_VOLTERA">
+<description>&lt;h3&gt;Arduino Uno R3 Footprint&lt;/h3&gt;
+Includes mounting holes, and holes for ICSP header
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count: 38&lt;/li&gt;
+&lt;li&gt;Area:2.7x2.1in&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Datasheet referenced for footprint:&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;Arduino Uno R3&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<pad name="ROW8" x="-15.24" y="-9.144" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW7" x="-15.24" y="-6.604" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW6" x="-15.24" y="-4.064" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW5" x="-15.24" y="-1.524" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW4" x="-15.24" y="1.016" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW3" x="-15.24" y="3.556" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW1" x="-15.24" y="8.636" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW2" x="-15.24" y="6.096" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW16" x="21.59" y="-9.144" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW15" x="21.59" y="-6.604" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW14" x="21.59" y="-4.064" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW13" x="21.59" y="-1.524" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW12" x="21.59" y="1.016" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW11" x="21.59" y="3.556" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW10" x="21.59" y="6.096" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="ROW9" x="21.59" y="8.636" drill="1.016" diameter="1.778" rot="R90"/>
+<wire x1="-12.7" y1="-11.43" x2="-12.7" y2="10.16" width="0.127" layer="51"/>
+<wire x1="-12.7" y1="10.16" x2="19.05" y2="10.16" width="0.127" layer="51"/>
+<wire x1="19.05" y1="10.16" x2="19.05" y2="-11.43" width="0.127" layer="51"/>
+<wire x1="-12.7" y1="-11.43" x2="19.05" y2="-11.43" width="0.127" layer="49"/>
+<smd name="D0" x="30.48" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D1" x="27.94" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D2" x="25.4" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="A3V" x="2.54" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D3" x="22.86" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D4" x="20.32" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D5" x="17.78" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="A5V" x="5.08" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D6" x="15.24" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D7" x="12.7" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D8" x="8.636" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D9" x="6.096" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D10" x="3.556" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D11" x="1.016" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D12" x="-1.524" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="D13" x="-4.064" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="A0" x="17.78" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="A1" x="20.32" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="A2" x="22.86" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="A3" x="25.4" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="A4" x="27.94" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="A5" x="30.48" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="AREF" x="-9.144" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="GND1" x="7.62" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="GND2" x="10.16" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="GND3" x="-6.604" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="IOREF" x="-2.54" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="NC" x="-5.08" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="RESET" x="0" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="SCL" x="-14.224" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="SDA" x="-11.684" y="21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<smd name="VIN" x="12.7" y="-21.844" dx="1.4224" dy="0.7112" layer="16" rot="R90"/>
+<wire x1="-33.02" y1="-23.749" x2="-33.02" y2="23.7236" width="0.127" layer="20"/>
+<wire x1="33.02" y1="23.7236" x2="33.02" y2="13.9446" width="0.127" layer="20"/>
+<wire x1="33.02" y1="13.9446" x2="35.56" y2="11.4046" width="0.127" layer="20"/>
+<wire x1="35.56" y1="11.4046" x2="35.56" y2="-23.749" width="0.127" layer="20"/>
+<wire x1="-33.02" y1="-23.749" x2="35.56" y2="-23.749" width="0.127" layer="20"/>
+<wire x1="-33.02" y1="23.749" x2="33.02" y2="23.749" width="0.127" layer="20"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="ARDUINO_R3" urn="urn:adsk.eagle:package:37330/1" locally_modified="yes" type="box">
