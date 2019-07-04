@@ -28,7 +28,7 @@ DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
-OutputPath=
+OutputPath=Project Outputs for VirtualWire_BreadBoard
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -127,67 +127,67 @@ DocumentPath=Project Outputs for VirtualWire_BreadBoard\Design Rule Check - Virt
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for Free Documents\NC Drill\VirtualWire_BreadBoard-RoundHoles.TXT
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\NC Drill\VirtualWire_BreadBoard-RoundHoles.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for Free Documents\NC Drill\VirtualWire_BreadBoard-SlotHoles.TXT
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\NC Drill\VirtualWire_BreadBoard-SlotHoles.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for Free Documents\NC Drill\VirtualWire_BreadBoard.DRR
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\NC Drill\VirtualWire_BreadBoard.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.EXTREP
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GBL
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GBO
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GBP
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GBS
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GM3
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GM3
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GTL
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GTO
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GTP
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.GTS
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for Free Documents\NC Drill\VirtualWire_BreadBoard.LDP
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\NC Drill\VirtualWire_BreadBoard.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.REP
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.REP
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for Free Documents\Gerber\VirtualWire_BreadBoard.RUL
+DocumentPath=Project Outputs for VirtualWire_BreadBoard\Gerber\VirtualWire_BreadBoard.RUL
 DItemRevisionGUID=
 
 [Configuration1]
@@ -199,6 +199,9 @@ Variant=[No Variations]
 OutputJobsCount=0
 ContentTypeGUID=CB6F2064-E317-11DF-B822-12313F0024A2
 ConfigurationType=Source
+
+[Generic_EDE]
+OutputDir=Project Outputs for VirtualWire_BreadBoard
 
 [OutputGroup1]
 Name=Netlist Outputs
@@ -309,7 +312,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=Microsoft Print to PDF
+TargetPrinter=Samsung M2070 Series
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]
