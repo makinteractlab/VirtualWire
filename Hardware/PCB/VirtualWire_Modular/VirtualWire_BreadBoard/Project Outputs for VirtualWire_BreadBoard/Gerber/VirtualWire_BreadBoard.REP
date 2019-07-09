@@ -2,31 +2,6 @@
 FileName = VirtualWire_BreadBoard.GBR
 AutoAperture = True
 *************************************************************
-Generating : Top Layer
-      File : VirtualWire_BreadBoard.GTL
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D13
-    D14
-*************************************************************
-
-*************************************************************
-Generating : Dimensions
-      File : VirtualWire_BreadBoard.GM3
-
-    Adding Layer      : Dimensions
-
-
-Used DCodes :
-    D10
-*************************************************************
-
-*************************************************************
 Generating : Bottom Overlay
       File : VirtualWire_BreadBoard.GBO
 
@@ -34,6 +9,47 @@ Generating : Bottom Overlay
 
 
 Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : VirtualWire_BreadBoard.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : VirtualWire_BreadBoard.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D14
+    D15
+    D16
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : VirtualWire_BreadBoard.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D10
 *************************************************************
 
 *************************************************************
@@ -69,6 +85,20 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
+Generating : Top Layer
+      File : VirtualWire_BreadBoard.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D14
+*************************************************************
+
+*************************************************************
 Generating : Top Solder
       File : VirtualWire_BreadBoard.GTS
 
@@ -85,43 +115,13 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Top Paste
-      File : VirtualWire_BreadBoard.GTP
+Generating : Dimensions
+      File : VirtualWire_BreadBoard.GM3
 
-    Adding Layer      : Top Paste
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-*************************************************************
-
-*************************************************************
-Generating : Top Overlay
-      File : VirtualWire_BreadBoard.GTO
-
-    Adding Layer      : Top Overlay
+    Adding Layer      : Dimensions
 
 
 Used DCodes :
     D10
-*************************************************************
-
-*************************************************************
-Generating : Bottom Layer
-      File : VirtualWire_BreadBoard.GBL
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D13
-    D14
-    D15
-    D16
 *************************************************************
 
