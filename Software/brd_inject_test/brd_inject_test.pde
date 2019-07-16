@@ -1,8 +1,127 @@
-XML xml;
+XML brdxml;
+JSONArray ccjson;
+
+XML netlistxml;
+String id;
+String part;
+String name;
+String label;
+String net = "";
+
+ArrayList<String> netParts = new ArrayList<String>();
+ArrayList<String> allNets = new ArrayList<String>();
 
 void setup() {
-  xml = loadXML("data/VW_PCB.brd");
-  XML[] drawing = xml.getChildren("drawing");
+  clearBrdSignals();
+  injectSignals();
+}
+
+// inject signals via VirtualWire_tempalte_netlist.xml
+void injectSignals(){
+  getAllNets();
+  
+  String[] contacts;
+  String from;
+  String to;
+  int cnum = 1;
+  
+  brdxml = loadXML("data/VW_PCB.brd");
+  XML[] drawing = brdxml.getChildren("drawing");
+  XML[] board = drawing[0].getChildren("board");
+  XML[] signals = board[0].getChildren("signals");
+  
+  for(int i = 0; i < allNets.size(); i++){
+    contacts = split(allNets.get(i), "_");
+    
+    XML signal = signals[0].addChild("signal");
+    signal.setString("name", "S$"+cnum);
+    cnum++;
+    
+    XML contactrefFirst = signal.addChild("contactref");
+    contactrefFirst.setString("element", "E$1");
+    contactrefFirst.setString("pad", contacts[0]);
+    
+    from = contacts[0];
+    if(from.equals("GND")) from = "GND1";
+    
+      
+    for(int j = 1; j < contacts.length; j++){
+      
+      to = contacts[j];
+      if(to.equals("GND")) to = "GND1";
+    
+      XML contactrefTo = signal.addChild("contactref");
+      contactrefTo.setString("element", "E$1");
+      contactrefTo.setString("pad", to);
+      XML wire = signal.addChild("wire");
+      wire.setString("width", "0");
+      wire.setString("layer", "19");
+      wire.setString("extent", "1-16");
+      
+      wire.setString("x1", ""+getBoardCoordinate(from).x);
+      wire.setString("y1", ""+getBoardCoordinate(from).y);
+      wire.setString("x2", ""+getBoardCoordinate(to).x);
+      wire.setString("y2", ""+getBoardCoordinate(to).y);
+      
+      from = to;
+    }
+  }
+  
+  saveXML(brdxml, "data/VW_PCB.brd");
+}
+
+/*
+// inject signals via CurrentConnections.json
+void injectSignals(){
+  ccjson = loadJSONArray("CurrentConnections.json");
+  
+  brdxml = loadXML("data/VW_PCB.brd");
+  XML[] drawing = brdxml.getChildren("drawing");
+  XML[] board = drawing[0].getChildren("board");
+  XML[] signals = board[0].getChildren("signals");
+  
+  
+  for (int i = 0; i < ccjson.size(); i++) {
+    
+    JSONObject connection = ccjson.getJSONObject(i); 
+    
+    int cnum = connection.getInt("Connection Number");
+    cnum++;
+    String from = connection.getString("from");
+    if(from.equals("A3V")) from = "3V3";
+    if(from.equals("A5V")) from = "5V";
+    String to = connection.getString("to");
+    if(to.equals("A3V")) to = "3V3";
+    if(to.equals("A5V")) to = "5V";
+    
+    println(cnum + ") from: " + from + ", to: " + to);
+    
+    XML signal = signals[0].addChild("signal");
+    signal.setString("name", "S$"+cnum);
+    XML contactrefFrom = signal.addChild("contactref");
+    contactrefFrom.setString("element", "E$1");
+    contactrefFrom.setString("pad", from);
+    XML contactrefTo = signal.addChild("contactref");
+    contactrefTo.setString("element", "E$1");
+    contactrefTo.setString("pad", to);
+    XML wire = signal.addChild("wire");
+    wire.setString("width", "0");
+    wire.setString("layer", "19");
+    wire.setString("extent", "1-16");
+    
+    wire.setString("x1", ""+getBoardCoordinate(from).x);
+    wire.setString("y1", ""+getBoardCoordinate(from).y);
+    wire.setString("x2", ""+getBoardCoordinate(to).x);
+    wire.setString("y2", ""+getBoardCoordinate(to).y);
+  }
+  
+  saveXML(brdxml, "data/VW_PCB.brd");
+}
+*/
+
+void clearBrdSignals(){
+  brdxml = loadXML("data/VW_PCB.brd");
+  XML[] drawing = brdxml.getChildren("drawing");
   XML[] board = drawing[0].getChildren("board");
   XML[] signals = board[0].getChildren("signals");
   XML[] allSignals = signals[0].getChildren("signal");
@@ -19,9 +138,7 @@ void setup() {
     signals[0].removeChild(temp);
   }
   
-  println(signals[0]);
-  
-  saveXML(xml, "data/VW_PCB.brd");
+  saveXML(brdxml, "data/VW_PCB.brd");
 }
 
 PVector getBoardCoordinate(String pad){
@@ -126,10 +243,61 @@ PVector getBoardCoordinate(String pad){
     case "A5":
       x = 63.5f; y = 2.54f; break;
     default: 
-      x = 0.0f;
-      y = 0.0f;
+      x = 0.0f; y = 0.0f;
       break; 
   }
   
   return new PVector(x, y);
+}
+
+void getAllNets(){
+  netlistxml = loadXML("VirtualWire_tempalte_netlist.xml");
+  XML[] nets = netlistxml.getChildren("net");
+
+  for (int i = 0; i < nets.length; i++) {
+    XML[] connectors = nets[i].getChildren("connector");
+    netParts = new ArrayList<String>();
+    
+    for(int j = 0; j < connectors.length; j++){
+      id = connectors[j].getString("id");
+      name = connectors[j].getString("name");
+      XML firstChild = connectors[j].getChild("part");
+      part = firstChild.getString("label");
+      
+      if(part.equals("ArduinoUno1") == true) label = name;
+      else label = connectorToLabel(id, part);
+      
+      //println(id + " " + part + " " + label);
+      
+      if(!netParts.contains(label)) netParts.add(label);
+    }
+    
+    //add to allNets
+    if(netParts.size() > 1){
+      for(int k = 0; k < netParts.size(); k++){
+        net = net + netParts.get(k) + "_";
+      }
+      net = net.substring(0, net.length()-1);
+      
+      allNets.add(net);
+      
+      net = "";
+    }
+  }
+  
+  println(allNets);
+}
+
+String connectorToLabel(String id, String part){
+  String result = "ROW";
+  int resNum;
+  
+  int connectorNum = Integer.parseInt(id.substring(9));
+  
+  if(part.equals("MicroBreadboard_left1") == true) resNum = connectorNum/5 + 1;
+  else resNum = (connectorNum/5) + 9;
+  
+  result = result + resNum;
+  
+  return result;
 }

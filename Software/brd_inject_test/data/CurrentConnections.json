@@ -1,0 +1,37 @@
+[
+  {
+    "from": "A3V",
+    "Connection Number": 0,
+    "to": "ROW16"
+  },
+  {
+    "from": "GND1",
+    "Connection Number": 1,
+    "to": "ROW1"
+  },
+  {
+    "from": "ROW1",
+    "Connection Number": 2,
+    "to": "ROW2"
+  },
+  {
+    "from": "ROW1",
+    "Connection Number": 3,
+    "to": "ROW4"
+  },
+  {
+    "from": "ROW16",
+    "Connection Number": 4,
+    "to": "ROW10"
+  },
+  {
+    "from": "ROW6",
+    "Connection Number": 5,
+    "to": "ROW1"
+  },
+  {
+    "from": "ROW16",
+    "Connection Number": 6,
+    "to": "ROW14"
+  }
+]

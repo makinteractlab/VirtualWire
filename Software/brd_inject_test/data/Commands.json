@@ -1,0 +1,10 @@
+[
+  {
+    "Command": "{\"cmd\":\"reset\"}",
+    "a_Command Number": 0
+  },
+  {
+    "Command": "{\"cmd\":\"connect\", \"data\": [\"A3V\", \"ROW16\", \"GND1\", \"ROW1\", \"ROW1\", \"ROW2\", \"ROW1\", \"ROW4\", \"ROW16\", \"ROW10\", \"ROW6\", \"ROW1\", \"ROW16\", \"ROW14\"]}",
+    "a_Command Number": 1
+  }
+]
