@@ -20,7 +20,7 @@ void serialEvent(Serial p) {
 
 void runScript(String input, String output){
   try{
-    Runtime.getRuntime().exec("C:\\Users\\aerol\\AppData\\Local\\Programs\\Python\\Python37\\python.exe "+dataPath("Eagle\\eagle.py")+" "+dataPath("Eagle\\"+input)+" "+dataPath("Eagle\\"+output));
+    Runtime.getRuntime().exec("C:\\Users\\aerol\\AppData\\Local\\Programs\\Python\\Python37\\python.exe "+dataPath("Eagle\\eagle.py")+" "+input+" "+dataPath("Eagle\\"+output));
     console.println("Solver Executed");
   }catch(Exception e){
     console.println("Couldn't run the script: "+e.getMessage());

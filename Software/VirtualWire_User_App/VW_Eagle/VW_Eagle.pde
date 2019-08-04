@@ -38,7 +38,6 @@ void setup(){
   background(200);
   
   console = new Console(0, 450, width, height-450, 9, width/50);
-  sch_vis_setup();
   
   printArray(Serial.list());
   myPort = new Serial(this, Serial.list()[SERIAL_PORT_INDEX], 115200); 
@@ -94,6 +93,7 @@ void actionPerformed (GUIEvent e){
     clearBrdSignals_voltera();
     injectSignals_voltera();
   }else if(e.getSource() == visualizer){
+    sch_vis_setup();
     schVis = !schVis;
   }
 }
@@ -125,7 +125,7 @@ void fileSelected(File selection) {
         console.println("File "+ file.getName() +" has changed!!!");
         
         delay(2000);
-        runScript("pinlist", "pinlist_output");
+        runScript(filePath, "pinlist_output");
         delay(1000);
         updateConnections_Eagle();
         

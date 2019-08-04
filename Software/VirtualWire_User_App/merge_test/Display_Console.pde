@@ -25,8 +25,17 @@ class Console{
   int getBottomLine(){ return bottomLine; }
   
   void println(String line){
-    log.add(line);
-    bottomLine = log.size() - 1;
+    if(line.length() >= 70){
+      String part1 = line.substring(0, 70);
+      String part2 = line.substring(70, line.length());
+      log.add(part1);
+      log.add(part2);
+      bottomLine = log.size() - 1;
+    }else{
+      log.add(line);
+      bottomLine = log.size() - 1;
+    }
+    
   }
   
   void scrollConsole(int change){

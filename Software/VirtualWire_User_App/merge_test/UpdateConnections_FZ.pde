@@ -77,7 +77,7 @@ void updateConnections_FZ(){
   }
   
   saveJSONArray(connections, "data/CurrentConnections.json");
-  console.println("<CurrentConnections.json> Updated From Fritzing");
+  console.println("<CurrentConnections.json> Updated From Fritzing Updated From Fritzing Updated From Fritzing Updated From Fritzing");
 }
 
 ArrayList<Connection> removeDuplicateConnections(ArrayList<Connection> connectionList){

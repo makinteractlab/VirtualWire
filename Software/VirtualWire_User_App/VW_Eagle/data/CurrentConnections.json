@@ -1,27 +1,22 @@
 [
   {
-    "from": "ROW10",
+    "from": "A5V",
     "Connection Number": 0,
-    "to": "ROW13"
+    "to": "ROW1"
   },
   {
     "from": "GND1",
     "Connection Number": 1,
-    "to": "ROW10"
-  },
-  {
-    "from": "A5V",
-    "Connection Number": 2,
-    "to": "ROW2"
+    "to": "ROW3"
   },
   {
     "from": "A0",
-    "Connection Number": 3,
-    "to": "ROW14"
+    "Connection Number": 2,
+    "to": "ROW16"
   },
   {
     "from": "D9",
-    "Connection Number": 4,
-    "to": "ROW11"
+    "Connection Number": 3,
+    "to": "ROW15"
   }
 ]
