@@ -16,6 +16,7 @@ void setup() {
   injectSignals();
 }
 
+
 // inject signals via VirtualWire_tempalte_netlist.xml
 void injectSignals(){
   getAllNets();
@@ -69,6 +70,7 @@ void injectSignals(){
   
   saveXML(brdxml, "data/VW_PCB.brd");
 }
+
 
 /*
 // inject signals via CurrentConnections.json
