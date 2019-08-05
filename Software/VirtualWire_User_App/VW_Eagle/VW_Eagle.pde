@@ -35,7 +35,6 @@ boolean schVis = false;
 
 void setup(){
   size(640, 720);
-  background(200);
   
   console = new Console(0, 450, width, height-450, 9, width/50);
   
@@ -73,12 +72,15 @@ void mousePressed(){
 }
 
 void draw(){
+  background(200);
+  
   if(schVis){
     sch_vis_draw();
   }
   
   fill(43, 48, 69);
   rect(0, 450, width, height-450);
+  
   console.display();
   
 }

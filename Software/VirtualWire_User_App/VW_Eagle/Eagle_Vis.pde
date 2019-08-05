@@ -11,7 +11,7 @@ PImage RP;
 PImage SV;
 PImage UC;
 PImage PB;
-
+PImage BT;
 
 void sch_vis_setup(){
   //size(720, 480);
@@ -25,6 +25,7 @@ void sch_vis_setup(){
   SV = loadImage("data/img/SV.png");
   UC = loadImage("data/img/UC.png");
   PB = loadImage("data/img/PB.png");
+  BT = loadImage("data/img/BT.png");
   
   components = parseComponents();
   
@@ -50,34 +51,57 @@ void sch_vis_setup(){
 void sch_vis_draw(){
   background(200);
   
-  //pushMatrix();
-  //translate(5, 75);
-  fill(255); rectMode(CENTER);
+  pushMatrix();
+  translate(150, 100);
+  scale(0.75);
+  fill(255);
+  rectMode(CENTER);
   rect(240, 240, 220, 300, 10);
   rect(470, 240, 220, 300, 10);
-  fill(0); ellipseMode(CENTER);
+  fill(0);
+  ellipseMode(CENTER);
   for(int i = 0; i < 5; i++)
     for(int j = 0; j < 8; j++) ellipse(170 + i*35, 118 + j*35, 15, 15);
   for(int i = 0; i < 5; i++)
     for(int j = 0; j < 8; j++) ellipse(400 + i*35, 118 + j*35, 15, 15);
   for(int i = 0; i < 8; i++) rect(470, 118 + i*35, 150, 5);
   for(int i = 0; i < 8; i++) rect(240, 118 + i*35, 150, 5);
-  //popMatrix();
+  popMatrix();
+  
+  
+  pushMatrix();
+  translate(146, 44);
+  scale(0.75);
   
   /*
   ArrayList<String> c1PinTypes = new ArrayList<String>();
-  c1PinTypes.add("connector0"); c1PinTypes.add("connector1"); c1PinTypes.add("connector2"); c1PinTypes.add("connector3");
-  c1PinTypes.add("connector4"); c1PinTypes.add("connector5"); c1PinTypes.add("connector6"); c1PinTypes.add("connector7");
+  c1PinTypes.add("connector0");
+  c1PinTypes.add("connector1");
+  c1PinTypes.add("connector2");
+  c1PinTypes.add("connector3");
+  c1PinTypes.add("connector4");
+  c1PinTypes.add("connector5");
+  c1PinTypes.add("connector6");
+  c1PinTypes.add("connector7");
   ArrayList<Integer> c1PinRows = new ArrayList<Integer>();
-  c1PinRows.add(1); c1PinRows.add(2); c1PinRows.add(3); c1PinRows.add(4);
-  c1PinRows.add(12); c1PinRows.add(11); c1PinRows.add(10); c1PinRows.add(9);
+  c1PinRows.add(1);
+  c1PinRows.add(2);
+  c1PinRows.add(3);
+  c1PinRows.add(4);
+  c1PinRows.add(12);
+  c1PinRows.add(11);
+  c1PinRows.add(10);
+  c1PinRows.add(9);
   
-  Component c1 = new Component("RP1", c1PinTypes, c1PinRows);
+  Component c1 = new Component("BT1", c1PinTypes, c1PinRows);
   c1.draw();
   */
   
   components.get(compCount%components.size()).draw();
+  popMatrix();
   
+  rectMode(CORNER);
+  ellipseMode(CORNER);
 }
 
 ArrayList<Component> parseComponents(){
@@ -141,6 +165,8 @@ String getCompType(String label){
     return "UC";
   }else if(label.substring(0, 1).equals("P")){
     return "PB";
+  }else if(label.substring(0, 1).equals("B")){
+    return "BT";
   }
   
   return "not a comp";
@@ -167,7 +193,7 @@ class Component{
   void draw(){
     if(compType.equals("C")){//IF COMPONENT IS A CAPACITOR
       imageMode(CENTER);
-      image(C, width/2, height/8, 100, 100);
+      image(C, 360, 60, 100, 100);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -184,7 +210,7 @@ class Component{
       strokeWeight(1);
     }else if(compType.equals("CP")){//IF COMPONENT IS A POLARIZED CAPACITOR
       imageMode(CENTER);
-      image(CP, width/2, height/8, 100, 100);
+      image(CP, 360, 60, 100, 100);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -203,7 +229,7 @@ class Component{
       strokeWeight(1);
     }else if(compType.equals("DE")){//IF COMPONENT IS A DIODE
       imageMode(CENTER);
-      image(DE, width/2, height/8, 100, 100);
+      image(DE, 360, 60, 100, 100);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -222,7 +248,7 @@ class Component{
       strokeWeight(1);
     }else if(compType.equals("LED")){//IF COMPONENT IS AN LED
       imageMode(CENTER);
-      image(LED, width/2, height/8, 100, 100);
+      image(LED, 360, 60, 100, 100);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -241,7 +267,7 @@ class Component{
       strokeWeight(1);
     }else if(compType.equals("R")){//IF COMPONENT IS A RESISTOR
       imageMode(CENTER);
-      image(R, width/2, height/8, 100, 100);
+      image(R, 360, 60, 100, 100);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -258,7 +284,7 @@ class Component{
       strokeWeight(1);
     }else if(compType.equals("RP")){//IF COMPONENT IS A POTENTIOMETER
       imageMode(CENTER);
-      image(RP, width/2, height/8, 100, 100);
+      image(RP, 360, 60, 100, 100);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -280,7 +306,7 @@ class Component{
       strokeWeight(1);
     }else if(compType.equals("SV")){//IF COMPONENT IS A SERVO MOTOR
       imageMode(CENTER);
-      image(SV, width/2, height/7, 2*45, 3*45);
+      image(SV, 360, 60, 2*45, 3*45);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -300,7 +326,7 @@ class Component{
       strokeWeight(1);
     }else if(compType.equals("UC")){//IF COMPONENT IS AN IC CHIP
       imageMode(CENTER);
-      image(UC, width/2, height/8, 100, 100);
+      image(UC, 360, 60, 100, 100);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -337,7 +363,7 @@ class Component{
       strokeWeight(1);
     }else if(compType.equals("PB")){//IF COMPONENT IS A PUSH BUTTON
       imageMode(CENTER);
-      image(PB, width/2, height/8, 100, 100);
+      image(PB, 360, 60, 100, 100);
   
       fill(133, 159, 255);
       strokeWeight(0);
@@ -350,6 +376,23 @@ class Component{
       strokeWeight(5);
       line(350, 110, pinToPixel(pinRows.get(0)).x, pinToPixel(pinRows.get(0)).y);
       line(370, 110, pinToPixel(pinRows.get(1)).x, pinToPixel(pinRows.get(1)).y);
+      stroke(0);
+      strokeWeight(1);
+    }else if(compType.equals("BT")){//IF COMPONENT IS A BATTERY
+      imageMode(CENTER);
+      image(BT, 360, 60, 100, 100);
+  
+      fill(133, 159, 255);
+      strokeWeight(0);
+      ellipse(pinToPixel(pinRows.get(0)).x, pinToPixel(pinRows.get(0)).y, 15, 15);
+      ellipse(pinToPixel(pinRows.get(1)).x, pinToPixel(pinRows.get(1)).y, 15, 15);
+      ellipse(325, 85, 15, 15);
+      ellipse(395, 85, 15, 15);
+      
+      stroke(133, 159, 255);
+      strokeWeight(5);
+      line(325, 85, pinToPixel(pinRows.get(0)).x, pinToPixel(pinRows.get(0)).y);
+      line(395, 85, pinToPixel(pinRows.get(1)).x, pinToPixel(pinRows.get(1)).y);
       stroke(0);
       strokeWeight(1);
     }
