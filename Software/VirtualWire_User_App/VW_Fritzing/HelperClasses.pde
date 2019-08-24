@@ -74,6 +74,7 @@ class Connection{
   String getFrom(){ return from; }
   String getTo(){ return to; }
   
+  void changeWireNum(String wireNum){ this.wireNum = wireNum; }
   void changeFrom(String from){ this.from = from; }
   void changeTo(String to){ this.to = to; }
   

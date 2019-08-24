@@ -4,7 +4,7 @@
     "a_Command Number": 0
   },
   {
-    "Command": "{\"cmd\":\"connect\", \"data\": [\"ROW1\", \"GND1\", \"ROW1\", \"ROW4\", \"A3V\", \"ROW16\"]}",
+    "Command": "{\"cmd\":\"connect\", \"data\": [\"ROW6\", \"ROW5\"]}",
     "a_Command Number": 1
   }
 ]

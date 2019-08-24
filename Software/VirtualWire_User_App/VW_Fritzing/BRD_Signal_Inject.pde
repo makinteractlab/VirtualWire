@@ -18,18 +18,25 @@ void injectSignals_regular(){
     signal.setString("name", "S$"+cnum);
     cnum++;
     
+    String first = contacts[0];
+    if(first.equals("3V3")) first = "A3V";
+    if(first.equals("5V")) first = "A5V";
+    
     XML contactrefFirst = signal.addChild("contactref");
     contactrefFirst.setString("element", "E$1");
-    contactrefFirst.setString("pad", contacts[0]);
+    contactrefFirst.setString("pad", first);
     
     from = contacts[0];
     //if(from.equals("GND")) from = "GND1";
-    
+    if(from.equals("3V3")) from = "A3V";
+    if(from.equals("5V")) from = "A5V";
       
     for(int j = 1; j < contacts.length; j++){
       
       to = contacts[j];
       //if(to.equals("GND")) to = "GND1";
+      if(to.equals("3V3")) to = "A3V";
+      if(to.equals("5V")) to = "A5V";
     
       XML contactrefTo = signal.addChild("contactref");
       contactrefTo.setString("element", "E$1");

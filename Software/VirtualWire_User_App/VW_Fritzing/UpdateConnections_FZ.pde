@@ -50,14 +50,20 @@ void updateConnections_FZ(String filePath){
       }
     }
   }
-      
+  
   for(Wire w: wires){ connectionList.add(new Connection(w.getTitle(), node(w.getLConn(), w.getLComp()), node(w.getRConn(), w.getRComp()))); }
   
-  formattedConnectionList = formatConnections(connectionList);
+  
+  formattedConnectionList = formatConnections2(connectionList);
+  while(!formattDone(formattedConnectionList)){
+    formattedConnectionList = formatConnections2(formattedConnectionList);
+  }
+  //formattedConnectionList = formatConnections(connectionList);
   formattedConnectionListNoDup = removeDuplicateConnections(formattedConnectionList);
   formattedConnectionListNoDupNoInvalid = removeInvalidConnections(formattedConnectionListNoDup);
   
-  for(Connection c: formattedConnectionListNoDupNoInvalid) console.println(c.toString());
+  for(Connection c: connectionList) console.println(c.toString());
+  console.println(" ");
   
   int ctnNum = 0;
   JSONArray connections = new JSONArray();
@@ -77,7 +83,8 @@ void updateConnections_FZ(String filePath){
   }
   
   saveJSONArray(connections, "data/CurrentConnections.json");
-  console.println("<CurrentConnections.json> Updated From Fritzing Updated From Fritzing Updated From Fritzing Updated From Fritzing");
+  console.println("<CurrentConnections.json> Updated From Fritzing");
+  console.println("");
 }
 
 ArrayList<Connection> removeDuplicateConnections(ArrayList<Connection> connectionList){
@@ -137,6 +144,37 @@ ArrayList<Connection> formatConnections(ArrayList<Connection> connectionList){
   return connectionList;
 }
 
+ArrayList<Connection> formatConnections2(ArrayList<Connection> connectionList){
+  boolean flag = false;
+  
+  for(int i = 0; i < connectionList.size(); i++){
+    if(connectionList.get(i).getTo().substring(0, 2).equals("Wi")){
+      for(int j = 0; j < connectionList.size(); j++){
+        if(connectionList.get(j).getWireNum().equals(connectionList.get(i).getTo())){
+          connectionList.get(i).changeWireNum(connectionList.get(j).getWireNum());
+          connectionList.get(i).changeTo(connectionList.get(j).getTo());
+          connectionList.remove(j);
+          
+          flag = true;
+          break;
+        }
+      }
+    }
+    
+    if(flag) break;
+  }
+  
+  return connectionList;
+}
+
+boolean formattDone(ArrayList<Connection> connectionList){
+  
+  for(int i = 0; i < connectionList.size(); i++){
+    if(connectionList.get(i).getTo().substring(0, 2).equals("Wi")) return false;
+  }
+  
+  return true;
+}
 
 ArrayList<Connection> removeInvalidConnections(ArrayList<Connection> connectionList){
   ArrayList<Connection> result = new ArrayList<Connection>();

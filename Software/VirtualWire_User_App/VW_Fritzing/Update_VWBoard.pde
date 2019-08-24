@@ -22,6 +22,13 @@ void updateCommands_Multi(){
   
   String cmd1 = "{\"cmd\":\"connect\", \"data\": [\"";
   
+  if(pairs.size() == 0){
+    console.println("No Connections in CurrentConnections.JSON");
+    saveJSONArray(Commands, "data/Commands.json");
+    console.println("<Commands.json> Updated");
+    return ;
+  }
+  
   for(int i = 0; i < pairs.size()-1; i++){
     cmd1 = cmd1 + pairs.get(i) + "\", \"";
   }
@@ -35,6 +42,7 @@ void updateCommands_Multi(){
   
   saveJSONArray(Commands, "data/Commands.json");
   console.println("<Commands.json> Updated");
+  console.println(" ");
 }
 
 void printAllCommands(){

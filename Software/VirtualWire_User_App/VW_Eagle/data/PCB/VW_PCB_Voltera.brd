@@ -319,24 +319,26 @@
       </elements>
       <signals>
         <signal name="S$1">
-          <contactref element="E$1" pad="A5V"/>
-          <contactref element="E$1" pad="ROW1"/>
-          <wire extent="1-16" layer="19" width="0" x1="38.1" x2="17.78" y1="1.905" y2="32.385"/>
+          <contactref element="E$1" pad="ROW3"/>
+          <contactref element="E$1" pad="ROW2"/>
+          <wire extent="1-16" layer="19" width="0" x1="17.78" x2="17.78" y1="27.305" y2="29.845"/>
+          <contactref element="E$1" pad="GND1"/>
+          <wire extent="1-16" layer="19" width="0" x1="17.78" x2="40.64" y1="29.845" y2="1.905"/>
         </signal>
         <signal name="S$2">
-          <contactref element="E$1" pad="GND1"/>
-          <contactref element="E$1" pad="ROW3"/>
-          <wire extent="1-16" layer="19" width="0" x1="40.64" x2="17.78" y1="1.905" y2="27.305"/>
+          <contactref element="E$1" pad="A5V"/>
+          <contactref element="E$1" pad="ROW16"/>
+          <wire extent="1-16" layer="19" width="0" x1="38.1" x2="54.61" y1="1.905" y2="14.605"/>
         </signal>
         <signal name="S$3">
           <contactref element="E$1" pad="A0"/>
-          <contactref element="E$1" pad="ROW16"/>
-          <wire extent="1-16" layer="19" width="0" x1="50.8" x2="54.61" y1="1.905" y2="14.605"/>
+          <contactref element="E$1" pad="ROW7"/>
+          <wire extent="1-16" layer="19" width="0" x1="50.8" x2="17.78" y1="1.905" y2="17.145"/>
         </signal>
         <signal name="S$4">
           <contactref element="E$1" pad="D9"/>
-          <contactref element="E$1" pad="ROW15"/>
-          <wire extent="1-16" layer="19" width="0" x1="39.116" x2="54.61" y1="45.593" y2="17.145"/>
+          <contactref element="E$1" pad="ROW10"/>
+          <wire extent="1-16" layer="19" width="0" x1="39.116" x2="54.61" y1="45.593" y2="29.845"/>
         </signal>
       </signals>
       <mfgpreviewcolors>

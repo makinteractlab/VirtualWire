@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import interfascia.*;
 import processing.serial.*;
-final int SERIAL_PORT_INDEX = 2;
+final int SERIAL_PORT_INDEX = 4;
 
 Serial myPort;                // The serial port
 String inString;              // Input string from serial port

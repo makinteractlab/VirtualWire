@@ -4745,6 +4745,96 @@ W = angled&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="battery" urn="urn:adsk.eagle:library:109">
+<description>&lt;b&gt;Lithium Batteries and NC Accus&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="SL-150-1/2AA/PR" urn="urn:adsk.eagle:footprint:4558/1" library_version="1">
+<description>&lt;b&gt;LI BATTERY&lt;/b&gt; Sonnenschein</description>
+<wire x1="9.525" y1="-7.366" x2="-12.192" y2="-7.366" width="0.1524" layer="21"/>
+<wire x1="12.446" y1="-2.413" x2="12.446" y2="2.413" width="0.4064" layer="51"/>
+<wire x1="-12.7" y1="-2.413" x2="-12.7" y2="2.413" width="0.4064" layer="51"/>
+<wire x1="12.192" y1="1.905" x2="12.192" y2="3.556" width="0.1524" layer="21"/>
+<wire x1="12.192" y1="-3.556" x2="12.192" y2="-1.905" width="0.1524" layer="21"/>
+<wire x1="12.192" y1="3.556" x2="11.303" y2="3.556" width="0.1524" layer="21"/>
+<wire x1="11.303" y1="3.556" x2="9.906" y2="6.985" width="0.1524" layer="21"/>
+<wire x1="12.192" y1="-3.556" x2="11.303" y2="-3.556" width="0.1524" layer="21"/>
+<wire x1="11.303" y1="-3.556" x2="11.303" y2="-1.524" width="0.1524" layer="21"/>
+<wire x1="11.303" y1="-1.524" x2="11.303" y2="1.397" width="0.1524" layer="51"/>
+<wire x1="11.303" y1="1.397" x2="11.303" y2="3.556" width="0.1524" layer="21"/>
+<wire x1="-10.414" y1="0" x2="-8.89" y2="0" width="0.254" layer="21"/>
+<wire x1="8.509" y1="-0.762" x2="8.509" y2="0.762" width="0.254" layer="21"/>
+<wire x1="7.747" y1="0" x2="9.271" y2="0" width="0.254" layer="21"/>
+<wire x1="9.906" y1="-6.985" x2="11.303" y2="-3.556" width="0.1524" layer="21"/>
+<wire x1="9.525" y1="7.366" x2="-12.192" y2="7.366" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="2.54" x2="-1.905" y2="0" width="0.254" layer="21"/>
+<wire x1="-5.08" y1="0" x2="-3.175" y2="0" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="0" x2="0" y2="0" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="0" x2="-1.905" y2="-2.54" width="0.254" layer="21"/>
+<wire x1="-1.397" y1="1.524" x2="-0.381" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-0.889" y1="2.032" x2="-0.889" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="12.192" y1="-1.905" x2="12.192" y2="1.905" width="0.1524" layer="51"/>
+<wire x1="9.906" y1="6.985" x2="9.906" y2="-6.985" width="0.1524" layer="21"/>
+<wire x1="-12.573" y1="-6.985" x2="-12.573" y2="-2.032" width="0.1524" layer="21"/>
+<wire x1="-12.573" y1="6.985" x2="-12.573" y2="2.032" width="0.1524" layer="21"/>
+<wire x1="9.525" y1="-7.366" x2="9.906" y2="-6.985" width="0.1524" layer="21" curve="90"/>
+<wire x1="9.525" y1="7.366" x2="9.906" y2="6.985" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-12.573" y1="-6.985" x2="-12.192" y2="-7.366" width="0.1524" layer="21" curve="90"/>
+<wire x1="-12.573" y1="6.985" x2="-12.192" y2="7.366" width="0.1524" layer="21" curve="-90"/>
+<pad name="-" x="-12.7" y="0" drill="1.3208" diameter="3.1496" shape="octagon"/>
+<pad name="+" x="12.446" y="0" drill="1.3208" diameter="3.1496" shape="octagon"/>
+<text x="-12.7" y="8.001" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-8.763" y="4.191" size="1.27" layer="21" ratio="10">Lithium 3V</text>
+<text x="-7.62" y="-5.715" size="1.27" layer="21" ratio="10">SL1/2PR</text>
+<text x="-5.08" y="8.001" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-3.175" y1="-1.27" x2="-2.54" y2="1.27" layer="21"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="SL-150-1/2AA/PR" urn="urn:adsk.eagle:package:4607/1" type="box" library_version="1">
+<description>LI BATTERY Sonnenschein</description>
+<packageinstances>
+<packageinstance name="SL-150-1/2AA/PR"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="1V2" urn="urn:adsk.eagle:symbol:4515/1" library_version="1">
+<wire x1="-0.635" y1="0.635" x2="-0.635" y2="0" width="0.4064" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-0.635" y2="0" width="0.1524" layer="94"/>
+<wire x1="-0.635" y1="0" x2="-0.635" y2="-0.635" width="0.4064" layer="94"/>
+<wire x1="0.635" y1="2.54" x2="0.635" y2="0" width="0.4064" layer="94"/>
+<wire x1="0.635" y1="0" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<wire x1="0.635" y1="0" x2="0.635" y2="-2.54" width="0.4064" layer="94"/>
+<text x="-1.27" y="3.175" size="1.778" layer="95">&gt;NAME</text>
+<text x="-1.27" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="+" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
+<pin name="-" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="SL-150-1/2AA/PR" urn="urn:adsk.eagle:component:4668/1" prefix="G" library_version="1">
+<description>&lt;b&gt;LI BATTERY&lt;/b&gt; Sonnenschein</description>
+<gates>
+<gate name="G$1" symbol="1V2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SL-150-1/2AA/PR">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:4607/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -4755,27 +4845,28 @@ W = angled&lt;p&gt;
 </class>
 </classes>
 <parts>
-<part name="C1" library="capacitor-wima" library_urn="urn:adsk.eagle:library:116" deviceset="C" device="2,5-3" package3d_urn="urn:adsk.eagle:package:5436/1"/>
-<part name="C2" library="capacitor-wima" library_urn="urn:adsk.eagle:library:116" deviceset="C" device="2,5-3" package3d_urn="urn:adsk.eagle:package:5436/1"/>
-<part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-TRIMM" device="4G/J" package3d_urn="urn:adsk.eagle:package:23728/1"/>
+<part name="CP1" library="capacitor-wima" library_urn="urn:adsk.eagle:library:116" deviceset="C" device="2,5-3" package3d_urn="urn:adsk.eagle:package:5436/1"/>
+<part name="CP2" library="capacitor-wima" library_urn="urn:adsk.eagle:library:116" deviceset="C" device="2,5-3" package3d_urn="urn:adsk.eagle:package:5436/1"/>
+<part name="RP1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-TRIMM" device="4G/J" package3d_urn="urn:adsk.eagle:package:23728/1"/>
 <part name="SV1" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA03-1" device="" package3d_urn="urn:adsk.eagle:package:8339/1"/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="BT1" library="battery" library_urn="urn:adsk.eagle:library:109" deviceset="SL-150-1/2AA/PR" device="" package3d_urn="urn:adsk.eagle:package:4607/1"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="C1" gate="G$1" x="48.26" y="53.34" smashed="yes">
+<instance part="CP1" gate="G$1" x="48.26" y="53.34" smashed="yes">
 <attribute name="NAME" x="49.784" y="53.721" size="1.778" layer="95"/>
 <attribute name="VALUE" x="49.784" y="48.641" size="1.778" layer="96"/>
 </instance>
-<instance part="C2" gate="G$1" x="96.52" y="53.34" smashed="yes">
+<instance part="CP2" gate="G$1" x="96.52" y="53.34" smashed="yes">
 <attribute name="NAME" x="98.044" y="53.721" size="1.778" layer="95"/>
 <attribute name="VALUE" x="98.044" y="48.641" size="1.778" layer="96"/>
 </instance>
-<instance part="R1" gate="G$1" x="58.42" y="53.34" smashed="yes">
+<instance part="RP1" gate="G$1" x="58.42" y="53.34" smashed="yes">
 <attribute name="NAME" x="52.451" y="49.53" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="54.61" y="49.53" size="1.778" layer="96" rot="R90"/>
 </instance>
@@ -4789,29 +4880,26 @@ W = angled&lt;p&gt;
 <instance part="GND1" gate="1" x="81.28" y="7.62" smashed="yes">
 <attribute name="VALUE" x="78.74" y="5.08" size="1.778" layer="96"/>
 </instance>
+<instance part="BT1" gate="G$1" x="132.08" y="68.58"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="A5V" class="0">
 <segment>
-<pinref part="C1" gate="G$1" pin="1"/>
+<pinref part="CP1" gate="G$1" pin="1"/>
 <wire x1="48.26" y1="55.88" x2="48.26" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="60.96" x2="45.72" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="E"/>
+<pinref part="RP1" gate="G$1" pin="E"/>
 <wire x1="48.26" y1="60.96" x2="58.42" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="60.96" x2="58.42" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="60.96" x2="45.72" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="71.12" x2="78.74" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="1"/>
+<pinref part="CP2" gate="G$1" pin="1"/>
 <wire x1="78.74" y1="71.12" x2="104.14" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="55.88" x2="96.52" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="60.96" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="SV1" gate="G$1" pin="3"/>
-<wire x1="104.14" y1="60.96" x2="116.84" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="60.96" x2="116.84" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="71.12" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
-<junction x="104.14" y="60.96"/>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
 <wire x1="78.74" y1="81.28" x2="78.74" y2="71.12" width="0.1524" layer="91"/>
 <junction x="78.74" y="71.12"/>
@@ -4819,27 +4907,31 @@ W = angled&lt;p&gt;
 </net>
 <net name="GND1" class="0">
 <segment>
-<pinref part="R1" gate="G$1" pin="A"/>
+<pinref part="RP1" gate="G$1" pin="A"/>
 <wire x1="58.42" y1="48.26" x2="58.42" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="43.18" x2="53.34" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="C1" gate="G$1" pin="2"/>
+<pinref part="CP1" gate="G$1" pin="2"/>
 <wire x1="53.34" y1="43.18" x2="48.26" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="43.18" x2="48.26" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="43.18" x2="53.34" y2="22.86" width="0.1524" layer="91"/>
 <junction x="53.34" y="43.18"/>
-<pinref part="SV1" gate="G$1" pin="1"/>
-<wire x1="116.84" y1="48.26" x2="116.84" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="40.64" x2="106.68" y2="40.64" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="2"/>
+<pinref part="CP2" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="40.64" x2="96.52" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="40.64" x2="96.52" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="53.34" y1="22.86" x2="81.28" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="22.86" x2="106.68" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="22.86" x2="106.68" y2="40.64" width="0.1524" layer="91"/>
-<junction x="106.68" y="40.64"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="81.28" y1="22.86" x2="81.28" y2="10.16" width="0.1524" layer="91"/>
 <junction x="81.28" y="22.86"/>
+<pinref part="SV1" gate="G$1" pin="3"/>
+<pinref part="BT1" gate="G$1" pin="-"/>
+<wire x1="116.84" y1="53.34" x2="127" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="127" y1="53.34" x2="127" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="53.34" x2="106.68" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="53.34" x2="106.68" y2="40.64" width="0.1524" layer="91"/>
+<junction x="116.84" y="53.34"/>
+<junction x="106.68" y="40.64"/>
 </segment>
 </net>
 <net name="D9" class="0">
@@ -4853,9 +4945,17 @@ W = angled&lt;p&gt;
 </net>
 <net name="A0" class="0">
 <segment>
-<pinref part="R1" gate="G$1" pin="S"/>
+<pinref part="RP1" gate="G$1" pin="S"/>
 <wire x1="63.5" y1="53.34" x2="63.5" y2="48.26" width="0.1524" layer="91"/>
 <label x="63.5" y="43.18" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="BT1" gate="G$1" pin="+"/>
+<pinref part="SV1" gate="G$1" pin="1"/>
+<wire x1="137.16" y1="68.58" x2="137.16" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="48.26" x2="116.84" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

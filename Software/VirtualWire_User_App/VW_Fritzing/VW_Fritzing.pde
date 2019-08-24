@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import interfascia.*;
 import processing.serial.*;
-final int SERIAL_PORT_INDEX = 2;
+final int SERIAL_PORT_INDEX = 3;
 
 Serial myPort;                // The serial port
 String inString;              // Input string from serial port
@@ -11,7 +11,7 @@ String fileName;
 String filePath;
 String folderPath;
 
-int serialCmdIndex = 0;
+int serialCmdIndex = 0; 
 
 JSONArray allCommands;
 
@@ -89,6 +89,7 @@ void fileSelected(File selection) {
     console.println("file name is: " + fileName);
     console.println("file path is: " + filePath);
     console.println("folder path is: " + folderPath);
+    console.println(" ");
   }
   
   task = new FileWatcher( selection ) {
@@ -102,6 +103,7 @@ void fileSelected(File selection) {
         lastChangeTime = thisChangeTime;
         
         console.println("File "+ file.getName() +" has changed!!!");
+        console.println(" ");
         
         delay(2000);
         updateConnections_FZ(filePath);
