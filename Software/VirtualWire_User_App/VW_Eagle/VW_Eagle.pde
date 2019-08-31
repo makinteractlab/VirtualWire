@@ -21,6 +21,7 @@ Console console;
 
 GUIController c;
 IFButton visualizer;
+IFButton visualizer_wire;
 IFButton brdSignalInject_regular;
 IFButton brdSignalInject_voltera;
 
@@ -32,6 +33,7 @@ int thisChangeTime;
 boolean firstSave = true;
 
 boolean schVis = false;
+boolean schVis_wire = false;
 
 void setup(){
   size(640, 720);
@@ -39,19 +41,22 @@ void setup(){
   console = new Console(0, 450, width, height-450, 9, width/50);
   
   printArray(Serial.list());
-  myPort = new Serial(this, Serial.list()[SERIAL_PORT_INDEX], 115200); 
+  ////////////////////////////////////////////myPort = new Serial(this, Serial.list()[SERIAL_PORT_INDEX], 115200); 
   
   c = new GUIController(this);
   
-  visualizer = new IFButton ("visualizer", 30, 110, 150, 30);
+  visualizer = new IFButton ("visualizer_component", 30, 110, 150, 30);
+  visualizer_wire = new IFButton ("visualizer_wire", 30, 70, 150, 30);
   brdSignalInject_regular = new IFButton ("brdSignalInject_regular", 30, 150, 150, 30);
   brdSignalInject_voltera = new IFButton ("brdSignalInject_voltera", 30, 190, 150, 30);
   
   visualizer.addActionListener(this);
+  visualizer_wire.addActionListener(this);
   brdSignalInject_regular.addActionListener(this);
   brdSignalInject_voltera.addActionListener(this);
   
   c.add(visualizer);
+  c.add(visualizer_wire);
   c.add(brdSignalInject_regular);
   c.add(brdSignalInject_voltera);
   
@@ -78,6 +83,10 @@ void draw(){
     sch_vis_draw();
   }
   
+  if(schVis_wire){
+    sch_vis_wire();
+  }
+  
   fill(43, 48, 69);
   rect(0, 450, width, height-450);
   
@@ -88,15 +97,22 @@ void draw(){
 void actionPerformed (GUIEvent e){
   if(e.getSource() == brdSignalInject_regular){
     schVis = false;
+    schVis_wire = false;
     clearBrdSignals_regular();
     injectSignals_regular();
   }else if(e.getSource() == brdSignalInject_voltera){
     schVis = false;
+    schVis_wire = false;
     clearBrdSignals_voltera();
     injectSignals_voltera();
   }else if(e.getSource() == visualizer){
     sch_vis_setup();
-    schVis = !schVis;
+    schVis = true;
+    schVis_wire = false;
+  }else if(e.getSource() == visualizer_wire){
+    sch_vis_setup();
+    schVis = false;
+    schVis_wire = true;
   }
 }
 
@@ -134,7 +150,7 @@ void fileSelected(File selection) {
         delay(2000);
         updateCommands_Multi();
         
-        runAllCommands();
+        ////////////////////////////////////////////////runAllCommands();
       }
     }
   };

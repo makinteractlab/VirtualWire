@@ -31,7 +31,7 @@ private void prepareExitHandler() {
   Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
     public void run(){
       System.out.println("EXIT: NO LONGER WATCHING FILE");
-      myPort.stop();
+      /////////////////////////////////////////////////myPort.stop();
     }
   }));
 }
