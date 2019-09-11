@@ -1,0 +1,27 @@
+[
+  {
+    "from": "ROW9",
+    "Connection Number": 0,
+    "to": "ROW5"
+  },
+  {
+    "from": "GND1",
+    "Connection Number": 1,
+    "to": "ROW9"
+  },
+  {
+    "from": "A5V",
+    "Connection Number": 2,
+    "to": "ROW6"
+  },
+  {
+    "from": "A0",
+    "Connection Number": 3,
+    "to": "ROW2"
+  },
+  {
+    "from": "D9",
+    "Connection Number": 4,
+    "to": "ROW14"
+  }
+]
