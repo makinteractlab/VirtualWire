@@ -1,0 +1,52 @@
+[
+  {
+    "from": "ROW3",
+    "Connection Number": 0,
+    "to": "D3"
+  },
+  {
+    "from": "ROW4",
+    "Connection Number": 1,
+    "to": "D2"
+  },
+  {
+    "from": "ROW6",
+    "Connection Number": 2,
+    "to": "D7"
+  },
+  {
+    "from": "ROW7",
+    "Connection Number": 3,
+    "to": "D8"
+  },
+  {
+    "from": "ROW15",
+    "Connection Number": 4,
+    "to": "D6"
+  },
+  {
+    "from": "ROW14",
+    "Connection Number": 5,
+    "to": "D5"
+  },
+  {
+    "from": "ROW13",
+    "Connection Number": 6,
+    "to": "ROW8"
+  },
+  {
+    "from": "ROW5",
+    "Connection Number": 7,
+    "to": "ROW8"
+  },
+  {
+    "from": "ROW8",
+    "Connection Number": 8,
+    "to": "A3V"
+  },
+  {
+    "from": "ROW12",
+    "Connection Number": 9,
+    "to": "D4"
+  }
+]

@@ -4,7 +4,7 @@
     "a_Command Number": 0
   },
   {
-    "Command": "{\"cmd\":\"connect\", \"data\": [\"ROW6\", \"ROW5\"]}",
+    "Command": "{\"cmd\":\"connect\", \"data\": [\"ROW2\", \"ROW1\", \"ROW3\", \"ROW2\", \"ROW4\", \"ROW3\", \"ROW5\", \"ROW4\", \"ROW6\", \"ROW5\", \"ROW7\", \"ROW6\", \"ROW8\", \"ROW7\", \"ROW9\", \"ROW8\", \"ROW10\", \"ROW9\", \"ROW11\", \"ROW10\", \"ROW12\", \"ROW11\", \"ROW13\", \"ROW12\", \"ROW14\", \"ROW13\", \"ROW15\", \"ROW14\", \"ROW16\", \"ROW15\"]}",
     "a_Command Number": 1
   }
 ]

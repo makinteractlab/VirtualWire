@@ -1,5 +1,77 @@
-[{
-  "from": "ROW6",
-  "Connection Number": 0,
-  "to": "ROW5"
-}]
+[
+  {
+    "from": "ROW2",
+    "Connection Number": 0,
+    "to": "ROW1"
+  },
+  {
+    "from": "ROW3",
+    "Connection Number": 1,
+    "to": "ROW2"
+  },
+  {
+    "from": "ROW4",
+    "Connection Number": 2,
+    "to": "ROW3"
+  },
+  {
+    "from": "ROW5",
+    "Connection Number": 3,
+    "to": "ROW4"
+  },
+  {
+    "from": "ROW6",
+    "Connection Number": 4,
+    "to": "ROW5"
+  },
+  {
+    "from": "ROW7",
+    "Connection Number": 5,
+    "to": "ROW6"
+  },
+  {
+    "from": "ROW8",
+    "Connection Number": 6,
+    "to": "ROW7"
+  },
+  {
+    "from": "ROW9",
+    "Connection Number": 7,
+    "to": "ROW8"
+  },
+  {
+    "from": "ROW10",
+    "Connection Number": 8,
+    "to": "ROW9"
+  },
+  {
+    "from": "ROW11",
+    "Connection Number": 9,
+    "to": "ROW10"
+  },
+  {
+    "from": "ROW12",
+    "Connection Number": 10,
+    "to": "ROW11"
+  },
+  {
+    "from": "ROW13",
+    "Connection Number": 11,
+    "to": "ROW12"
+  },
+  {
+    "from": "ROW14",
+    "Connection Number": 12,
+    "to": "ROW13"
+  },
+  {
+    "from": "ROW15",
+    "Connection Number": 13,
+    "to": "ROW14"
+  },
+  {
+    "from": "ROW16",
+    "Connection Number": 14,
+    "to": "ROW15"
+  }
+]
