@@ -1,12 +1,12 @@
 import java.util.*;
 import java.io.*;
-import interfascia.*;
 import processing.serial.*;
 
+import interfascia.*; // DEPENDECY
+import controlP5.*; //DEPENDENCY
 
 // TO CHANGE ACCORDING TO YOUR SYSTEM
 final int SERIAL_PORT_INDEX = 3;
-
 
 
 // BEGIN CODE
@@ -29,9 +29,11 @@ GUIController c;
 IFButton b1, b2, b3;
 IFLabel l;
 
+ControlP5 controlP5;
+ListBox lb;
 
 void setup(){
-  size(1000, 720);
+  size(1120, 720);
   
   println(Serial.list());
   println();
@@ -49,9 +51,19 @@ void setup(){
   b2.addActionListener(this);
   c.add(b2);
   
-  b3 = new IFButton("Reset VW Board", 15, 85, 120, 30);
-  b3.addActionListener(this);
-  c.add(b3);
+  //b3 = new IFButton("Reset VW Board", 15, 85, 120, 30);
+  //b3.addActionListener(this);
+  //c.add(b3);
+  
+  controlP5 = new ControlP5(this);
+  lb = controlP5.addListBox("history", 940, 0, 180, 720);
+  // l.actAsPulldownMenu(true);
+  lb.setItemHeight(25);
+  
+  //initialize wire list console
+  for(int i = 0; i < wirelist.size(); i++){
+    lb.addItem(wirelist.get(i).getButtonLabel(), i);
+  }
   
   create_nodes();
 }
@@ -70,6 +82,7 @@ void draw(){
     strokeWeight(5);
     line(lineAnchorX, lineAnchorY, mouseX, mouseY);
   }
+  
 }
 
 void draw_board(){

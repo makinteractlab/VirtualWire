@@ -1,5 +1,5 @@
 void mousePressed(){
-  if(mouseFlag == false){
+  if(mouseFlag == false && mouseX < 940){
     //println("mouse down");
     mouseFlag = true;
     lineAnchorX = mouseX;
@@ -19,6 +19,23 @@ void mouseReleased(){
     String to = checkWithinNode(currX, currY);
     
     if(!from.equals(to)) wirelist.add(new Wire(from, to, lineAnchorX, lineAnchorY, currX, currY));
+    
+    lb.clear();
+    
+    for(int i = 0; i < wirelist.size(); i++) {
+      lb.addItem(wirelist.get(i).getButtonLabel(), i);
+    }
+  }
+}
+
+void history(int x) {
+  println("deleting " + wirelist.get(x).getButtonLabel());
+  lb.clear();
+  
+  wirelist.remove(x);
+  
+  for(int i = 0; i < wirelist.size(); i++) {
+    lb.addItem(wirelist.get(i).getButtonLabel(), i);
   }
 }
 
@@ -36,17 +53,24 @@ void actionPerformed (GUIEvent e) {
   if (e.getSource() == b2) {
     println();
     println("WIRES CLEARED");
-    println();
+    
     wirelist.clear();
-  }
-  
-  if(e.getSource() == b3) {
+    lb.clear();
+    
     println("SENDING RESET COMMAND");
   
     String runThis = "{\"cmd\":\"reset\"}" + "\n";
     println("{\"cmd\":\"reset\"}" + " - sent to VW Board");
     myPort.write(runThis);
   }
+  
+  //if(e.getSource() == b3) {
+  //  println("SENDING RESET COMMAND");
+  //
+  //  String runThis = "{\"cmd\":\"reset\"}" + "\n";
+  //  println("{\"cmd\":\"reset\"}" + " - sent to VW Board");
+  //  myPort.write(runThis);
+  //}
 }
 
 

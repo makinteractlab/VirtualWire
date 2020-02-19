@@ -12,9 +12,9 @@ class Wire{
   int b;
   
   Wire(String from, String to, int x1, int y1, int x2, int y2){
-    r = (int)random(0, 255);
-    g = (int)random(0, 255);
-    b = (int)random(0, 255);
+    //r = (int)random(0, 255);
+    //g = (int)random(0, 255);
+    //b = (int)random(0, 255);
     
     this.from = from;
     this.to = to;
@@ -26,7 +26,8 @@ class Wire{
   }
   
   void draw(){
-    stroke(r, g, b);
+    //stroke(r, g, b);
+    stroke(230, 230, 25);
     strokeWeight(5);
     
     line(x1, y1, x2, y2);
@@ -39,6 +40,10 @@ class Wire{
   
   String getTo(){
     return to;
+  }
+  
+  String getButtonLabel(){
+    return from + "-" + to;
   }
   
   //public String toString(){ return "x1: " + x1 + "\ny1: " + y1 + "\nx2: " + x2 + "\ny2" + y2 + "\n\n"; }
